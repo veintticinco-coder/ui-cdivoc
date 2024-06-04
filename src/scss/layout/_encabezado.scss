@@ -1,0 +1,147 @@
+@keyframes abrirMenu {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes cerrarMenu {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+.barra {
+  background-color: transparent;
+  height: 60px;
+  padding: 10px 0;
+}
+
+.boton-menu,
+.cerrar-menu {
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+  padding: 0 7px;
+
+  &:hover {
+    background-color: $gris;
+  }
+}
+
+.boton-menu {
+  left: 10px;
+  display: none;
+}
+
+.cerrar-menu {
+  right: 10px;
+  top: 4px;
+}
+
+.navegacion {
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+  list-style: none;
+
+  .link {
+    text-decoration: none;
+    font-weight: 700;
+    color: $blanco;
+
+    i {
+      display: none;
+    }
+
+    &:hover {
+      color: $verde;
+    }
+  }
+
+  @include tablet {
+    gap: 15px;
+
+    .link {
+      color: $negro;
+    }
+  }
+}
+
+.barra-izquierda {
+  display: none;
+  text-align: center;
+}
+
+@include tablet {
+  .boton-menu {
+    display: block;
+  }
+
+  .barra .navegacion {
+    flex-direction: column;
+    position: fixed;
+    background-color: $blanco;
+    box-shadow: 1px 1px 10px $negro;
+    top: 0;
+    left: -100%;
+    min-width: min(300px, 90%);
+    height: 100vh;
+    justify-content: start;
+    z-index: 1;
+    display: flex;
+
+    li a {
+      display: block;
+      padding: 10px 30px;
+      margin-top: -10px;
+
+      i {
+        display: inline-block;
+        width: 22px;
+        margin-right: 2px;
+      }
+    }
+
+    .boton-menu {
+      display: block;
+    }
+
+    a:hover {
+      background-color: $gris;
+    }
+  }
+
+  .barra-izquierda {
+    display: block;
+    border-bottom: solid 1px $gris;
+  }
+
+  .pie .navegacion {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.abierto {
+  animation: abrirMenu 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.cerrado {
+  animation: cerrarMenu 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.encabezado {
+  background-image: url("../imagenes/Viajes2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}

@@ -1,0 +1,26 @@
+.contenedor-tabla {
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $blanco;
+
+  thead tr {
+    background-color: lighten($negro, 15%);
+    color: $blanco;
+    text-transform: capitalize;
+  }
+
+  tbody tr {
+    border-bottom: solid 2px $gris;
+  }
+
+  td {
+    text-align: center;
+    padding: 5px;
+  }
+}

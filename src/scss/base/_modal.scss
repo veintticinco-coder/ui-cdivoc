@@ -1,0 +1,82 @@
+@keyframes mover {
+  from {
+    top: -100vh;
+  }
+  to {
+    top: 15%;
+  }
+}
+
+.contenedor-modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  animation: mover 0.8s;
+  animation-fill-mode: forwards;
+}
+
+.modal {
+  background-color: $blanco;
+  width: 35%;
+
+  @include desktopXL {
+    width: 45%;
+  }
+
+  @include desktop {
+    width: 60%;
+  }
+
+  @include tablet {
+    width: 75%;
+  }
+
+  @include telefono {
+    width: 90%;
+  }
+}
+
+.modal-encabezado,
+.modal-pie {
+  padding: 0 15px;
+}
+
+.modal-encabezado {
+  display: flex;
+  justify-content: space-between;
+  line-height: 0;
+  background-color: $gris;
+  border-bottom: 1px solid $negro;
+
+  span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  i {
+    cursor: pointer;
+    line-height: 0;
+    display: revert;
+
+    &:hover {
+      color: $rojo;
+    }
+  }
+}
+
+.modal-cuerpo {
+  padding: 15px;
+  max-width: 90%;
+  margin: auto;
+}
+
+.modal-contenido {
+  padding: 15px;
+}
+
+.modal-pie {
+  border-top: solid 1px $negro;
+}

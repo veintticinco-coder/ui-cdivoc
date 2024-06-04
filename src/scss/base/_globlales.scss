@@ -1,0 +1,70 @@
+html {
+  box-sizing: border-box;
+  font-family: $fuente_principal;
+  font-size: 18px;
+}
+
+body {
+  background-color: $gris;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  line-height: 2;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.contenedor {
+  max-width: min($pc, 95%);
+  margin: auto;
+}
+
+.contenido-principal {
+  min-height: 50vh;
+  margin-bottom: 50px;
+}
+
+.alinear-derecha {
+  display: flex;
+  justify-content: end;
+  gap: 4px;
+}
+
+.mayuscula {
+  text-transform: uppercase;
+}
+
+.requerido {
+  color: red;
+}
+
+.contenedor-boton {
+  margin: 10px 0;
+}
+
+.boton-azul {
+  @include boton($azul, inline-block);
+}
+
+.boton-gris {
+  @include boton(darken($gris, 50%), inline-block);
+}
+
+.bloqueo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $negro;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.8;
+}

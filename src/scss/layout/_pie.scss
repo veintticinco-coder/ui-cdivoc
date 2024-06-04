@@ -1,0 +1,19 @@
+.pie {
+  min-height: 200px;
+  background-color: $negro;
+  padding: 30px 0;
+
+  .navegacion {
+    justify-content: start;
+  }
+
+  .link {
+    color: $blanco;
+  }
+
+  p {
+    color: $blanco;
+    text-align: center;
+    margin-top: 70px;
+  }
+}
