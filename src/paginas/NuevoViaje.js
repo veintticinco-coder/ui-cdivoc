@@ -4,9 +4,10 @@ import { FormularioViajes } from "../formularios";
 import { APIProvider, AdvancedMarker, Map, Pin } from "@vis.gl/react-google-maps";
 
 const googleMaps = "https://maps.googleapis.com/maps/apis/getcode/json?latlng=";
-const key = "AIzaSyBTEwE0QYkgBW3zSyf_WlciAZueFoclhPs";
+const key = process.env.REACT_APP_API_KEY;
 
 export const NuevoViaje = () => {
+    console.log(key);
     const refFormulario = useRef();
     const { Encabezado, Fecha, Rutas } = FormularioViajes();
     const [origen, setOrigen] = useState({ lat: null, lng: null });
