@@ -5,6 +5,7 @@ import { APIProvider, AdvancedMarker, Map, Pin } from "@vis.gl/react-google-maps
 
 const googleMaps = "https://maps.googleapis.com/maps/apis/getcode/json?latlng=";
 const key = process.env.REACT_APP_API_KEY;
+const mapID = process.env.REACT_APP_MAP_ID;
 
 export const NuevoViaje = () => {
     console.log(key);
@@ -56,7 +57,7 @@ export const NuevoViaje = () => {
             <div style={{ height: "300px" }}>
                 <APIProvider apiKey={key}>
                     {origen.lat ?
-                        <Map defaultZoom={15} defaultCenter={{ ...origen }} mapId={"e4cd4b93312db44"}>
+                        <Map defaultZoom={15} defaultCenter={{ ...origen }} mapId={mapID}>
                             <AdvancedMarker key="origen" position={{ ...origen }} clickable={true} draggable={true} onDragEnd={(e) => nuevaCoordenada(e, "origen")} title="Origen" onClick={onHandleClick} >
                                 <Pin background={'red'} glyphColor={'#000'} borderColor={'#000'} />
                             </AdvancedMarker>
