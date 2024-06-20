@@ -1,21 +1,63 @@
+import { Grafica } from "../utilidades";
 
 export const Inicio = () => {
+  const conductores = [{
+    name: "Activos",
+    count: 21
+  }, {
+    name: "Inactivos",
+    count: 3
+  }];
+
+  const viajes = [{
+    name: "Terminados",
+    count: 328
+  }, {
+    name: "Pendientes",
+    count: 4
+  },
+  {
+    name: "Cancelados",
+    count: 27
+  }];
+
+  const unidades = [{
+    name: "Activas",
+    count: 18
+  }, {
+    name: "Inactivas",
+    count: 3
+  },
+  {
+    name: "En Mantenimiento",
+    count: 2
+  },
+  {
+    name: "Otro datos",
+    count: 18
+  },
+  {
+    name: "Nuevo Dato",
+    count: 37
+  }];
+
   return (
     <>
-      <div className="contenido">
-        <h2>Título Contenido</h2>
-        <p> Duis quis justo a elit dignissim pretium. Vivamus et eleifend odio. Phasellus et venenatis metus. Phasellus ac dolor vel nisl pretium laoreet nec eu risus. Vestibulum pellentesque mauris vitae rhoncus faucibus. Integer viverra diam a posuere varius. Sed sed neque vel massa accumsan bibendum quis non velit. Praesent varius, tellus in mattis condimentum, sem felis sollicitudin nulla, ut hendrerit diam nibh id nibh. Etiam id egestas nunc.
-        </p>
-      </div>
-      <div className="contenido">
-        <h2>Título Contenido</h2>
-        <p> Duis quis justo a elit dignissim pretium. Vivamus et eleifend odio. Phasellus et venenatis metus. Phasellus ac dolor vel nisl pretium laoreet nec eu risus. Vestibulum pellentesque mauris vitae rhoncus faucibus. Integer viverra diam a posuere varius. Sed sed neque vel massa accumsan bibendum quis non velit. Praesent varius, tellus in mattis condimentum, sem felis sollicitudin nulla, ut hendrerit diam nibh id nibh. Etiam id egestas nunc.
-        </p>
-      </div>
-      <div className="contenido">
-        <h2>Título Contenido</h2>
-        <p> Duis quis justo a elit dignissim pretium. Vivamus et eleifend odio. Phasellus et venenatis metus. Phasellus ac dolor vel nisl pretium laoreet nec eu risus. Vestibulum pellentesque mauris vitae rhoncus faucibus. Integer viverra diam a posuere varius. Sed sed neque vel massa accumsan bibendum quis non velit. Praesent varius, tellus in mattis condimentum, sem felis sollicitudin nulla, ut hendrerit diam nibh id nibh. Etiam id egestas nunc.
-        </p>
+      <div className="contenedor-extra contenido-principal">
+        <div className="carta">
+          <h3>Viajes</h3>
+          <Grafica datos={viajes} clase={"viajes"} />
+        </div>
+        <div className="contenido-cartas">
+          <div className="carta">
+            <h3>Conductores</h3>
+            <Grafica datos={conductores} clase={"conductores"} />
+          </div>
+          <div className="carta">
+            <h3>Unidades</h3>
+            <Grafica datos={unidades} clase={"unidades"} />
+          </div>
+        </div>
       </div>
     </>
   );

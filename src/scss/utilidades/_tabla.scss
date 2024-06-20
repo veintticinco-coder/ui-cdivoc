@@ -4,6 +4,21 @@
   overflow: auto;
 }
 
+.tabla-opciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+
+  .busqueda {
+    display: flex;
+  }
+
+  .boton-azul,
+  .boton-gris {
+    padding: 5px 15px;
+  }
+}
+
 .tabla {
   width: 100%;
   border-collapse: collapse;

@@ -2,10 +2,16 @@
 @import "base/variables.scss";
 @import "base/mixins.scss";
 @import "base/globlales.scss";
-@import "base/tabla";
-@import "base/modal";
-@import "base/formulario";
 
+// Utilidades
+@import "utilidades/formulario";
+@import "utilidades/modal";
+@import "utilidades/tabla";
+@import "utilidades/cartas";
+@import "utilidades/grafica";
+@import "utilidades/columnas";
+
+// Secciones
 @import "layout/encabezado";
-@import "layout/contenido-principal";
 @import "layout/pie";
+@import "layout/sesion";

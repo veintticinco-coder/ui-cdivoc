@@ -2,12 +2,12 @@ import { useRef, useState } from "react";
 import { useDatos } from "../hooks";
 import { Formulario } from "./Formulario";
 
-export const Modal = ({ url, tipo, campos, modal, recargar }) => {
+export const Modal = ({ url, metodo, campos, modal, recargar }) => {
     const formulario = useRef();
 
     const [informacion, setInformacion] = useState({
         url: url,
-        tipo: tipo,
+        tipo: metodo,
         formulario: null
     });
 
@@ -18,15 +18,9 @@ export const Modal = ({ url, tipo, campos, modal, recargar }) => {
 
         setInformacion({
             ...informacion,
-            formulario: datos
+            formulario: datos,
+            accion: recargar
         });
-
-        setTimeout(() => {
-            if (respuesta && respuesta.Error === 0) {
-                modal(false);
-                recargar();
-            }
-        }, 500)
     }
 
     return (
@@ -44,7 +38,7 @@ export const Modal = ({ url, tipo, campos, modal, recargar }) => {
                         <div className="modal-contenido">
                             <label><span className="requerido">*</span> Campos requeridos</label>
                             <form className="formulario" ref={formulario}>
-                                {campos.map(campo => <Formulario key={campo.name} {...campo} />)}
+                                {campos && campos.map(campo => <Formulario key={campo.name} {...campo} />)}
                                 {respuesta && respuesta.Mensaje}
                             </form>
                         </div>

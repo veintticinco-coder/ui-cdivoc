@@ -1,0 +1,64 @@
+.contenedor-grafica {
+  position: relative;
+}
+
+.grafica {
+  margin-top: 35px;
+}
+
+.grafica li {
+  position: relative;
+}
+
+.grafica li span {
+  display: block;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+.grafica li::before,
+.grafica li::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 0;
+  height: 50%;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.grafica li::before {
+  width: 100%;
+  background: lighten($negro, 35%);
+}
+
+.grafica li::after {
+  background: #40aed4;
+}
+
+.legend {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+
+  li {
+    position: relative;
+    border-right: solid 1px rgba(148, 92, 92, 0.3);
+
+    span {
+      position: absolute;
+      width: 100%;
+      bottom: -32px;
+      left: 0;
+    }
+
+    &:nth-child(1) span {
+      right: -5px;
+    }
+  }
+}

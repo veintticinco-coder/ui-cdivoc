@@ -1,0 +1,29 @@
+.contenido-encabezado.sesion {
+  height: 100vh !important;
+}
+
+main.sesion {
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor-sesion {
+  width: min(600px, 90%);
+  position: absolute;
+  top: 40%;
+  color: $blanco;
+
+  .carta {
+    background: transparent;
+  }
+
+  span.error {
+    display: block;
+    width: 100%;
+    background-color: lighten($rojo, 15%);
+    color: $blanco;
+    padding: 2px 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+}

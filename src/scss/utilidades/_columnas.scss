@@ -1,0 +1,15 @@
+.columnas-2 {
+  @include grid(2, 15px);
+
+  @include telefono {
+    @include grid(1, 15px);
+  }
+}
+
+.columnas-3 {
+  @include grid(3, 15px);
+
+  @include telefono {
+    @include grid(1, 15px);
+  }
+}

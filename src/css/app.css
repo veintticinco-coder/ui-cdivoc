@@ -337,8 +337,19 @@ h3 {
   margin: auto;
 }
 
+.contenedor-pequenio {
+  max-width: min(768px, 95%);
+  margin: auto;
+}
+
+.contenedor-extra {
+  max-width: min(1400px, 95%);
+  margin: auto;
+}
+
 .contenido-principal {
   min-height: 50vh;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -346,6 +357,19 @@ h3 {
   display: flex;
   justify-content: end;
   gap: 4px;
+}
+
+.alinear-izquierda {
+  display: flex;
+  justify-content: start;
+}
+.alinear-izquierda .textos {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.alinear-izquierda .boton-gris {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .mayuscula {
@@ -366,7 +390,7 @@ h3 {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 8px;
+  padding: 15px;
   cursor: pointer;
 }
 .boton-azul:hover {
@@ -379,45 +403,101 @@ h3 {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 8px;
+  padding: 15px;
   cursor: pointer;
 }
 .boton-gris:hover {
   background-color: #656565;
 }
 
+.boton-verde {
+  display: inline-block;
+  background-color: #0787a0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+}
+.boton-verde:hover {
+  background-color: #067288;
+}
+
+.boton-mapa {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border-radius: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 70px;
+  height: 50px;
+}
+
 .bloqueo {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #848484;
+  background-color: #333;
   width: 100%;
   height: 100vh;
   opacity: 0.8;
 }
 
-.contenedor-tabla {
-  width: 100%;
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #134eee;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.5s linear infinite;
   margin: auto;
-  overflow: auto;
 }
 
-.tabla {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-.tabla thead tr {
-  background-color: #aaaaaa;
-  color: #fff;
+.formulario {
+  margin-bottom: 5px;
+}
+
+.campos {
+  margin-bottom: 10px;
+}
+
+label,
+.textos {
+  display: block;
+  width: 100%;
+}
+
+label {
   text-transform: capitalize;
 }
-.tabla tbody tr {
-  border-bottom: solid 2px #f1f1f1;
+
+.textos {
+  padding: 7px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  color: #333;
+  outline: none;
 }
-.tabla td {
-  text-align: center;
-  padding: 5px;
+.textos:focus {
+  border-color: #134eee;
+}
+
+select {
+  background-color: transparent;
 }
 
 @keyframes mover {
@@ -473,7 +553,7 @@ h3 {
   justify-content: space-between;
   line-height: 0;
   background-color: #f1f1f1;
-  border-bottom: 1px solid #848484;
+  border-bottom: 1px solid #333;
 }
 .modal-encabezado span {
   display: flex;
@@ -500,29 +580,158 @@ h3 {
 }
 
 .modal-pie {
-  border-top: solid 1px #848484;
+  border-top: solid 1px #333;
 }
 
-.formulario .campos {
-  margin-bottom: 10px;
-}
-.formulario label,
-.formulario .textos {
-  display: block;
+.contenedor-tabla {
   width: 100%;
+  margin: auto;
+  overflow: auto;
 }
-.formulario label {
+
+.tabla-opciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.tabla-opciones .busqueda {
+  display: flex;
+}
+.tabla-opciones .boton-azul,
+.tabla-opciones .boton-gris {
+  padding: 5px 15px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+.tabla thead tr {
+  background-color: #595959;
+  color: #fff;
   text-transform: capitalize;
 }
-.formulario .textos {
-  padding: 7px;
-  border: 1px solid silver;
-  border-radius: 5px;
-  color: #848484;
-  outline: none;
+.tabla tbody tr {
+  border-bottom: solid 2px #f1f1f1;
 }
-.formulario .textos:focus {
-  border-color: #134eee;
+.tabla td {
+  text-align: center;
+  padding: 5px;
+}
+
+.contenedor-cartas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 15px;
+}
+@media (max-width: 1024px) {
+  .contenedor-cartas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.carta {
+  background-color: #fff;
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.carta h1,
+.carta h2,
+.carta h3 {
+  text-align: center;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.contenedor-grafica {
+  position: relative;
+}
+
+.grafica {
+  margin-top: 35px;
+}
+
+.grafica li {
+  position: relative;
+}
+
+.grafica li span {
+  display: block;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+.grafica li::before,
+.grafica li::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 0;
+  height: 50%;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.grafica li::before {
+  width: 100%;
+  background: #8c8c8c;
+}
+
+.grafica li::after {
+  background: #40aed4;
+}
+
+.legend {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+.legend li {
+  position: relative;
+  border-right: solid 1px rgba(148, 92, 92, 0.3);
+}
+.legend li span {
+  position: absolute;
+  width: 100%;
+  bottom: -32px;
+  left: 0;
+}
+.legend li:nth-child(1) span {
+  right: -5px;
+}
+
+.columnas-2 {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 480px) {
+  .columnas-2 {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.columnas-3 {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 480px) {
+  .columnas-3 {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @keyframes abrirMenu {
@@ -542,7 +751,7 @@ h3 {
   }
 }
 .barra {
-  background-color: transparent;
+  background-color: #fff;
   height: 60px;
   padding: 10px 0;
 }
@@ -569,6 +778,19 @@ h3 {
   top: 4px;
 }
 
+.contenedor-navegacion {
+  display: flex;
+  justify-content: space-between;
+}
+.contenedor-navegacion img {
+  margin-top: -5px;
+}
+@media (max-width: 768px) {
+  .contenedor-navegacion {
+    justify-content: center;
+  }
+}
+
 .navegacion {
   display: flex;
   justify-content: end;
@@ -577,8 +799,7 @@ h3 {
 }
 .navegacion .link {
   text-decoration: none;
-  font-weight: 700;
-  color: #fff;
+  color: #333;
 }
 .navegacion .link i {
   display: none;
@@ -586,12 +807,15 @@ h3 {
 .navegacion .link:hover {
   color: #0787a0;
 }
+.navegacion .boton-gris {
+  padding: 2px 15px !important;
+}
 @media (max-width: 768px) {
   .navegacion {
     gap: 15px;
   }
   .navegacion .link {
-    color: #848484;
+    color: #333;
   }
 }
 
@@ -608,14 +832,14 @@ h3 {
     flex-direction: column;
     position: fixed;
     background-color: #fff;
-    box-shadow: 1px 1px 10px #848484;
+    box-shadow: 1px 1px 10px #333;
     top: 0;
     left: -100%;
     min-width: min(300px, 90%);
     height: 100vh;
     justify-content: start;
     z-index: 1;
-    display: flex;
+    display: none;
   }
   .barra .navegacion li a {
     display: block;
@@ -643,6 +867,7 @@ h3 {
   }
 }
 .abierto {
+  display: flex !important;
   animation: abrirMenu 0.5s;
   animation-fill-mode: forwards;
 }
@@ -652,21 +877,33 @@ h3 {
   animation-fill-mode: forwards;
 }
 
-.encabezado {
-  background-image: url("../imagenes/Viajes2.jpg");
+.contenido-encabezado {
+  background-image: url("../imagenes/Baner.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 561px;
+  margin: auto;
 }
 
-.contenido {
-  border-bottom: solid 1px silver;
+.contenedor-busqueda {
+  width: 40%;
+  height: 40px;
+  display: flex;
+}
+.contenedor-busqueda .textos {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.contenedor-busqueda .boton-gris {
+  padding: 5px 15px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .pie {
   min-height: 200px;
-  background-color: #848484;
+  background-color: #333;
   padding: 30px 0;
 }
 .pie .navegacion {
@@ -679,4 +916,32 @@ h3 {
   color: #fff;
   text-align: center;
   margin-top: 70px;
+}
+
+.contenido-encabezado.sesion {
+  height: 100vh !important;
+}
+
+main.sesion {
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor-sesion {
+  width: min(600px, 90%);
+  position: absolute;
+  top: 40%;
+  color: #fff;
+}
+.contenedor-sesion .carta {
+  background: transparent;
+}
+.contenedor-sesion span.error {
+  display: block;
+  width: 100%;
+  background-color: #f34141;
+  color: #fff;
+  padding: 2px 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }

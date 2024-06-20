@@ -17,7 +17,7 @@
 }
 
 .barra {
-  background-color: transparent;
+  background-color: $blanco;
   height: 60px;
   padding: 10px 0;
 }
@@ -44,6 +44,19 @@
   top: 4px;
 }
 
+.contenedor-navegacion {
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    margin-top: -5px;
+  }
+
+  @include tablet {
+    justify-content: center;
+  }
+}
+
 .navegacion {
   display: flex;
   justify-content: end;
@@ -52,8 +65,7 @@
 
   .link {
     text-decoration: none;
-    font-weight: 700;
-    color: $blanco;
+    color: $negro;
 
     i {
       display: none;
@@ -62,6 +74,10 @@
     &:hover {
       color: $verde;
     }
+  }
+
+  .boton-gris {
+    padding: 2px 15px !important;
   }
 
   @include tablet {
@@ -94,7 +110,7 @@
     height: 100vh;
     justify-content: start;
     z-index: 1;
-    display: flex;
+    display: none;
 
     li a {
       display: block;
@@ -129,6 +145,7 @@
 }
 
 .abierto {
+  display: flex !important;
   animation: abrirMenu 0.5s;
   animation-fill-mode: forwards;
 }
@@ -138,10 +155,29 @@
   animation-fill-mode: forwards;
 }
 
-.encabezado {
-  background-image: url("../imagenes/Viajes2.jpg");
+.contenido-encabezado {
+  background-image: url("../imagenes/Baner.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 500px;
+  height: 561px;
+  margin: auto;
+}
+
+.contenedor-busqueda {
+  width: 40%;
+  height: 40px;
+  display: flex;
+
+  .textos {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .boton-gris {
+    padding: 5px 15px;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }

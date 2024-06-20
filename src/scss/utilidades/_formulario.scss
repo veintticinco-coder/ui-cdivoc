@@ -1,0 +1,33 @@
+.formulario {
+  margin-bottom: 5px;
+}
+
+.campos {
+  margin-bottom: 10px;
+}
+
+label,
+.textos {
+  display: block;
+  width: 100%;
+}
+
+label {
+  text-transform: capitalize;
+}
+
+.textos {
+  padding: 7px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  color: $negro;
+  outline: none;
+
+  &:focus {
+    border-color: $azul;
+  }
+}
+
+select {
+  background-color: transparent;
+}

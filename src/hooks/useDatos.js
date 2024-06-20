@@ -1,22 +1,47 @@
 import { useState, useEffect, useCallback } from "react";
 
-export const useDatos = ({ url, tipo, formulario = null }) => {
-    const [respuesta, setRespuesta] = useState();
-    const ruta = `http://localhost:3002/${url}`
+export const useDatos = ({ url, metodo, formulario = null }) => {
+    const [respuesta, setRespuesta] = useState({
+        cargando: false,
+        respuesta: null,
+        error: null
+    });
+
+    const ruta = `http://localhost:3002/${url}`;
 
     const Enviar = useCallback(async () => {
-        const datos = await fetch(ruta, {
-            method: tipo,
-            body: formulario
-        }).then((data) => data.json());
+        setRespuesta({
+            cargando: true,
+            respuesta: null,
+            error: null
+        });
 
-        setRespuesta(datos);
-    }, [ruta, tipo, formulario]);
+        const datos = await fetch(ruta, {
+            method: metodo,
+            body: formulario
+        });
+
+        if (!datos.ok) {
+            setRespuesta({
+                cargando: false,
+                respuesta: null,
+                error: "Hubo un error"
+            });
+        }
+
+        const data = await datos.json();
+
+        setRespuesta({
+            cargando: false,
+            respuesta: data,
+            error: null
+        })
+    }, [ruta, metodo, formulario]);
 
     useEffect(() => {
-        if (!formulario && tipo === "post") return;
+        if (!formulario && metodo === "post") return;
         Enviar();
-    }, [formulario, tipo, Enviar])
+    }, [formulario, metodo, Enviar])
 
     return {
         respuesta, Enviar

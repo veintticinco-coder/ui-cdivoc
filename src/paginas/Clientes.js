@@ -7,7 +7,9 @@ export const Clientes = () => {
 
     return (
         <>
-            <Tabla url={"Clientes"} campos={campos} />
+            <div className="contenedor">
+                <Tabla url={"Clientes"} campos={campos} />
+            </div>
         </>
     )
 }
