@@ -1,17 +1,7 @@
 import { useDatos } from "../hooks/useDatos";
 
-export const FormularioViajes = () => {
+export const FormularioViajes = ({ origen, destino }) => {
     const { respuesta: { respuesta: TipoServicio } } = useDatos({ url: "Viajes/TipoServicio", metodo: "GET" });
-    /*const TipoServicio = [
-        { id: 1, name: "CRUCE LÍNEA EXPRESS" },
-        { id: 2, name: "CRUCE LÍNEA REGULAR" },
-        { id: 3, name: "SERVICIO LOCAL EL PASO" },
-        { id: 4, name: "SERVICIO LOCAL CD. JUÁREZ" },
-        { id: 5, name: "DISPOSICIÓN LOCAL 6 HRS" },
-        { id: 6, name: "DISPOSICIÓN LOCAL 8 HRS" },
-        { id: 7, name: "DISPOSICIÓN LOCAL 12 HRS" },
-        { id: 8, name: "DISPOSICIÓN FORANEA" }
-    ];*/
 
     const Encabezado = [
         {
@@ -35,11 +25,13 @@ export const FormularioViajes = () => {
     const Rutas = [{
         type: "text",
         name: "origen",
+        value: origen,
         required: true
     },
     {
         type: "text",
         name: "destino",
+        value: destino,
         required: true
     }];
 

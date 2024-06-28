@@ -1,8 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Clientes, Inicio, NuevoViaje } from './paginas';
+import { Clientes, Inicio, NuevoViaje, Sesion } from './paginas';
 import { Menu } from "./utilidades";
 import { useState } from "react";
-import { Sesion } from "./paginas/Sesion";
 
 export function App() {
   const [menu, setMenu] = useState(false);
@@ -18,8 +17,8 @@ export function App() {
       {pathname !== "/Sesion" &&
         <Menu menu={menu} VerMenu={VerMenu} />
       }
-      <div className={`contenido-encabezado ${pathname === "/Sesion" && "sesion"}`}></div>
-      <main className={pathname === "/Sesion" && "sesion"}>
+      <div className={`contenido-encabezado ${pathname === "/Sesion" ? "sesion" : ""}`}></div>
+      <main className={pathname === "/Sesion" ? "sesion" : ""}>
         <Routes>
           {sesion && sesion.perfil === "ADMIN" ? <>
             <Route exact path="/" element={<Inicio />} />

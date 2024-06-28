@@ -1,77 +1,114 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Formulario } from "../utilidades";
 import { FormularioViajes } from "../formularios";
-import { APIProvider, AdvancedMarker, Map, Pin } from "@vis.gl/react-google-maps";
+import { APIProvider, AdvancedMarker, Map, Pin, useMapsLibrary } from "@vis.gl/react-google-maps";
 
-const googleMaps = "https://maps.googleapis.com/maps/apis/getcode/json?latlng=";
 const key = process.env.REACT_APP_API_KEY;
 const mapID = process.env.REACT_APP_MAP_ID;
+const googleMaps = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
+
+const Mapa = ({ origen, destino, nuevaCoordenada }) => {
+    return (<>
+        <div className="mapa">
+            <APIProvider apiKey={key}>
+                <Map
+                    id="mapa"
+                    defaultZoom={15}
+                    defaultCenter={{ ...origen }}
+                    mapId={mapID}
+                    gestureHandling={'greedy'}
+                    disableDefaultUI={true}>
+                    {origen.lat != null &&
+                        <AdvancedMarker key="origen"
+                            position={{ ...origen }}
+                            clickable={true}
+                            draggable={true}
+                            onDragEnd={(e) => nuevaCoordenada({ lat: e.latLng.lat(), lng: e.latLng.lng() }, "origen")}
+                            title="Origen" >
+                            <Pin background={'red'} glyphColor={'#000'} borderColor={'#000'} />
+                        </AdvancedMarker>
+                    }
+                    {destino.lat &&
+                        <AdvancedMarker key="destino" position={{ ...destino }} clickable={true} draggable={true} onDragEnd={(e) => nuevaCoordenada({ lat: e.latLng.lat(), lng: e.latLng.lng() }, "destino")} title="Destino" >
+                            <Pin background={'green'} glyphColor={'#000'} borderColor={'#000'} />
+                        </AdvancedMarker>
+                    }
+                </Map>
+                <Places nuevaCoordenada={nuevaCoordenada} />
+            </APIProvider>
+        </div>
+    </>)
+}
+
+const Places = ({ nuevaCoordenada }) => {
+    const places = useMapsLibrary("places");
+    const inputRef = useRef();
+
+    useEffect(() => {
+        if (!places || !inputRef.current) return;
+
+        const options = {
+            fields: ["geometry", "name", "formatted_address"]
+        };
+
+        inputRef.current = new places.Autocomplete(inputRef.current, options);
+
+        inputRef.current.addListener("place_changed", async () => {
+            const location = inputRef.current.getPlace().geometry.location;
+            const position = { lat: location.lat(), lng: location.lng() };
+
+            nuevaCoordenada({ ...position }, "destino");
+        });
+    }, [places, nuevaCoordenada]);
+
+    return (
+        <div className="autocomplete">
+            <input type="text" ref={inputRef} className="textos" />
+        </div>
+    );
+}
 
 export const NuevoViaje = () => {
-    console.log(key);
     const refFormulario = useRef();
-    const { Encabezado, Fecha, Rutas } = FormularioViajes();
-    const [origen, setOrigen] = useState({ lat: null, lng: null });
-    const [destino, setDestino] = useState({ lat: null, lng: null });
 
-    const nuevaCoordenada = (event, valor) => {
-        const { lat, lng } = event.latLng;
-        const x = lat();
-        const y = lng();
+    const [origen, setOrigen] = useState({ lat: null, lng: null, descripcion: "" });
+    const [destino, setDestino] = useState({ lat: null, lng: null, descripcion: "" });
+
+    const { Encabezado, Fecha, Rutas } = FormularioViajes({
+        origen: origen.descripcion, destino: destino.descripcion
+    });
+
+    const nuevaCoordenada = async (location, valor) => {
+        const { lat, lng } = location;
+
+        const { results } = await fetch(`${googleMaps}${lat},${lng}&key=${key}`)
+            .then(rest => rest.json())
+            .then(address => address);
 
         if (valor === "origen") {
             setOrigen({
-                lat: x,
-                lng: y
+                lat: lat,
+                lng: lng,
+                descripcion: results[0].formatted_address
             });
         }
 
         if (valor === "destino") {
             setDestino({
-                lat: x,
-                lng: y
+                lat: lat,
+                lng: lng,
+                descripcion: results[0].formatted_address
             });
         }
     }
 
     useEffect(() => {
         navigator?.geolocation.getCurrentPosition(({ coords: { latitude: lat, longitude: lng } }) => {
-            const pos = { lat, lng };
-            setOrigen({ ...pos });
-            setDestino({ ...pos });
+            const position = { lat, lng };
+            setOrigen({ ...position });
+            nuevaCoordenada({ ...position }, "origen");
         });
     }, []);
-
-    const onHandleClick = (event) => {
-        const { lat: latF, lng: lngF } = event.latLng;
-        const lat = latF();
-        const lng = lngF();
-
-        fetch(`${googleMaps}${lat},${lng}&key=${key}`)
-            .then(rest => rest.json())
-            .then(adress => console.log(adress));
-    }
-
-    const Mapa = () => {
-        return (<>
-            <div style={{ height: "300px" }}>
-                <APIProvider apiKey={key}>
-                    {origen.lat ?
-                        <Map defaultZoom={15} defaultCenter={{ ...origen }} mapId={mapID}>
-                            <AdvancedMarker key="origen" position={{ ...origen }} clickable={true} draggable={true} onDragEnd={(e) => nuevaCoordenada(e, "origen")} title="Origen" onClick={onHandleClick} >
-                                <Pin background={'red'} glyphColor={'#000'} borderColor={'#000'} />
-                            </AdvancedMarker>
-                            {destino.lat &&
-                                <AdvancedMarker key="destino" position={{ ...destino }} clickable={true} draggable={true} onDragEnd={(e) => nuevaCoordenada(e, "destino")} title="Destino" >
-                                    <Pin background={'green'} glyphColor={'#000'} borderColor={'#000'} />
-                                </AdvancedMarker>
-                            }
-                        </Map>
-                        : "Error al cargar el mapa"}
-                </APIProvider>
-            </div>
-        </>)
-    }
 
     return (
         <div className="contenedor-pequenio">
@@ -90,7 +127,7 @@ export const NuevoViaje = () => {
                     <div className="columnas-2">
                         {Rutas.map(campo => <Formulario key={`Rutas ${campo.name}`} {...campo} />)}
                     </div>
-                    <Mapa />
+                    <Mapa origen={origen} destino={destino} nuevaCoordenada={nuevaCoordenada} />
                 </div>
                 <div className="alinear-derecha">
                     <button className="boton-verde">Guardar</button>

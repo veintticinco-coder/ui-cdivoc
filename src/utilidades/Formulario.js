@@ -1,20 +1,17 @@
-export const Formulario = ({ type, name, required, className = null, options = [] }) => {
+export const Formulario = ({ type, name, required, className = null, options = [], value }) => {
     return (
         <>
-            {(type === "text" ||
-                type === "email" ||
-                type === "date" ||
-                type === "time" ||
-                type === "password") &&
+            {(type !== "select" && type !== "textarea") &&
                 <div className="campos">
                     <label>{name} {required && <span className="requerido">*</span>}</label>
                     <input type={type} name={name} required={required}
-                        className={`textos ${className !== null && className}`} />
+                        className={`textos ${className ? className : ""}`}
+                        defaultValue={value !== undefined ? value : ""} />
                 </div>}
             {(type === "select") &&
                 <div className="campos">
                     <label>{name} {required && <span className="requerido">*</span>}</label>
-                    <select name={name} className={`textos ${className !== null && className}`} required={required}>
+                    <select name={name} className={`textos ${className ? className : ""}`} required={required}>
                         {required ?
                             <option value={-1}>:: SELECCIONAR ::</option> :
                             <option value={0}>:: NINGUNO ::</option>}
@@ -27,7 +24,7 @@ export const Formulario = ({ type, name, required, className = null, options = [
                 <div className="campos">
                     <label>{name} {required && <span className="requerido">*</span>}</label>
                     <textarea name={name} required={required}
-                        className={`textos ${className !== null && className}`}></textarea>
+                        className={`textos ${className ? className : ""}`}></textarea>
                 </div>}
         </>
     )

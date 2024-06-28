@@ -734,6 +734,18 @@ select {
   }
 }
 
+.mapa {
+  height: 300px;
+  position: relative;
+}
+.mapa .autocomplete {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  display: block;
+  width: 96%;
+}
+
 @keyframes abrirMenu {
   from {
     left: -100%;

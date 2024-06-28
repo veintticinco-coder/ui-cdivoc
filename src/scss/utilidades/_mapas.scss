@@ -1,3 +1,12 @@
-.divoc{
-    background: url(../../imagenes/Logo_Divoc.png);
+.mapa {
+  height: 300px;
+  position: relative;
+
+  .autocomplete {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    display: block;
+    width: 96%;
+  }
 }
