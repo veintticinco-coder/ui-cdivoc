@@ -396,6 +396,37 @@ h3 {
 .boton-azul:hover {
   background-color: #1046d8;
 }
+.boton-azul.contorno {
+  background-color: #fff;
+  color: #333;
+  border: solid 1px #134eee;
+}
+.boton-azul.contorno:hover {
+  background-color: #134eee;
+  color: #fff;
+}
+
+.boton-rojo {
+  display: inline-block;
+  background-color: #d90e0e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+}
+.boton-rojo:hover {
+  background-color: #c10c0c;
+}
+.boton-rojo.contorno {
+  background-color: #fff;
+  color: #333;
+  border: solid 1px #d90e0e;
+}
+.boton-rojo.contorno:hover {
+  background-color: #d90e0e;
+  color: #fff;
+}
 
 .boton-gris {
   display: inline-block;
@@ -409,6 +440,15 @@ h3 {
 .boton-gris:hover {
   background-color: #656565;
 }
+.boton-gris.contorno {
+  background-color: #fff;
+  color: #333;
+  border: solid 1px #727272;
+}
+.boton-gris.contorno:hover {
+  background-color: #727272;
+  color: #fff;
+}
 
 .boton-verde {
   display: inline-block;
@@ -421,6 +461,19 @@ h3 {
 }
 .boton-verde:hover {
   background-color: #067288;
+}
+.boton-verde.contorno {
+  background-color: #fff;
+  color: #333;
+  border: solid 1px #0787a0;
+}
+.boton-verde.contorno:hover {
+  background-color: #0787a0;
+  color: #fff;
+}
+
+.circulo {
+  border-radius: 40px;
 }
 
 .boton-mapa {
@@ -447,6 +500,52 @@ img {
   width: 100%;
   height: 100vh;
   opacity: 0.8;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+span.error,
+span.cancelado {
+  display: block;
+  width: 100%;
+  background-color: #f34141;
+  color: #fff;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+span.correcto,
+span.terminado {
+  display: block;
+  width: 100%;
+  background-color: #12c712;
+  color: #fff;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+span.pendiente {
+  display: block;
+  width: 100%;
+  background-color: #e9d502;
+  color: #fff;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+span.encurso {
+  display: block;
+  width: 100%;
+  background-color: #067288;
+  color: #fff;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .spinner {
@@ -606,6 +705,7 @@ select {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
+  margin-bottom: 5px;
 }
 .tabla thead tr {
   background-color: #595959;
@@ -744,6 +844,95 @@ select {
   left: 15px;
   display: block;
   width: 96%;
+  opacity: 0.8;
+}
+
+.flecha_arriba {
+  position: relative;
+}
+.flecha_arriba::before, .flecha_arriba::after {
+  content: "";
+  position: absolute;
+  border: solid transparent;
+  width: 0;
+  height: 0;
+  bottom: 100%;
+  left: 45%;
+}
+.flecha_arriba::before {
+  border-bottom-color: silver;
+  border-width: 21px;
+  margin-left: -1px;
+}
+.flecha_arriba::after {
+  border-bottom-color: #fff;
+  border-width: 20px;
+}
+
+.flecha_abajo {
+  position: relative;
+}
+.flecha_abajo::before, .flecha_abajo::after {
+  content: "";
+  position: absolute;
+  border: solid transparent;
+  width: 0;
+  height: 0;
+  top: 100%;
+  left: 45%;
+}
+.flecha_abajo::before {
+  border-top-color: silver;
+  border-width: 21px;
+  margin-left: -1px;
+}
+.flecha_abajo::after {
+  border-top-color: #fff;
+  border-width: 20px;
+}
+
+.flecha_izquierda {
+  position: relative;
+}
+.flecha_izquierda::before, .flecha_izquierda::after {
+  content: "";
+  position: absolute;
+  border: solid transparent;
+  width: 0;
+  height: 0;
+  right: 100%;
+  top: 30%;
+}
+.flecha_izquierda::before {
+  border-right-color: silver;
+  border-width: 21px;
+  margin-top: -1px;
+}
+.flecha_izquierda::after {
+  border-right-color: #fff;
+  border-width: 20px;
+}
+
+.flecha_derecha {
+  position: relative;
+}
+.flecha_derecha::before, .flecha_derecha::after {
+  content: "";
+  position: absolute;
+  border: solid transparent;
+  width: 0;
+  height: 0;
+  left: 100%;
+  top: 30%;
+}
+.flecha_derecha::before {
+  border-left-color: silver;
+  border-width: 21px;
+  margin-top: -1px;
+}
+.flecha_derecha::after {
+  border-left-color: #fff;
+  border-width: 20px;
 }
 
 @keyframes abrirMenu {
@@ -820,7 +1009,9 @@ select {
   color: #0787a0;
 }
 .navegacion .boton-gris {
-  padding: 2px 15px !important;
+  padding: 5px 15px;
+  position: relative;
+  top: -4px;
 }
 @media (max-width: 768px) {
   .navegacion {
@@ -948,12 +1139,9 @@ main.sesion {
 .contenedor-sesion .carta {
   background: transparent;
 }
-.contenedor-sesion span.error {
-  display: block;
-  width: 100%;
-  background-color: #f34141;
-  color: #fff;
-  padding: 2px 15px;
-  margin-bottom: 5px;
-  border-radius: 5px;
+
+.viajes i {
+  padding-right: 15px;
+  margin-right: 7px;
+  border-right: solid 1px #fff;
 }

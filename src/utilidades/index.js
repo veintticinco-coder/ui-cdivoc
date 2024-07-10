@@ -4,3 +4,4 @@ export * from "./Menu";
 export * from "./Formulario";
 export * from "./Spinner";
 export * from "./Grafica";
+export * from "./Mapas";

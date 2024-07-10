@@ -77,7 +77,10 @@
   }
 
   .boton-gris {
-    padding: 2px 15px !important;
+    padding: 5px 15px;
+    position: relative;
+    top: -4px;
+    // border-radius: 20px;
   }
 
   @include tablet {

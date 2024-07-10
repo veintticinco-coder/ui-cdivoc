@@ -6,10 +6,8 @@ export const Clientes = () => {
     const campos = FormularioClientes;
 
     return (
-        <>
-            <div className="contenedor">
-                <Tabla url={"Clientes"} campos={campos} />
-            </div>
-        </>
+        <div className="contenedor-extra">
+            <Tabla url={"Clientes"} campos={campos} />
+        </div>
     )
 }

@@ -79,14 +79,38 @@ h3 {
 
 .boton-azul {
   @include boton($azul, inline-block);
+
+  &.contorno {
+    @include contorno($azul);
+  }
+}
+
+.boton-rojo {
+  @include boton($rojo, inline-block);
+
+  &.contorno {
+    @include contorno($rojo);
+  }
 }
 
 .boton-gris {
   @include boton(darken($gris, 50%), inline-block);
+
+  &.contorno {
+    @include contorno(darken($gris, 50%));
+  }
 }
 
 .boton-verde {
   @include boton($verde, inline-block);
+
+  &.contorno {
+    @include contorno($verde);
+  }
+}
+
+.circulo {
+  border-radius: 40px;
 }
 
 .boton-mapa {
@@ -113,6 +137,28 @@ img {
   width: 100%;
   height: 100vh;
   opacity: 0.8;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+span.error,
+span.cancelado {
+  @include estatus(lighten($rojo, 15%));
+}
+
+span.correcto,
+span.terminado {
+  @include estatus($verdeClaro);
+}
+
+span.pendiente {
+  @include estatus($naranja);
+}
+
+span.encurso {
+  @include estatus(darken($verde, 5%));
 }
 
 .spinner {

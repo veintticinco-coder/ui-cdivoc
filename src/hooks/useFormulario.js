@@ -4,7 +4,7 @@ import { useState } from "react";
 export const useFormulario = ({ valoresIniciales }) => {
     const [formulario, setFormulario] = useState({ ...valoresIniciales });
 
-    const Asignar = (event) => {
+    const onCambio = (event) => {
         const nombre = event.target.name;
         const valor = event.target.value;
 
@@ -16,6 +16,6 @@ export const useFormulario = ({ valoresIniciales }) => {
 
     return {
         formulario,
-        Asignar
+        onCambio
     }
 }

@@ -1,10 +1,10 @@
 export const FormularioSesion = [{
     type: "text",
-    name: "Usuario",
+    name: "usuario",
     required: true
 },
 {
     type: "password",
-    name: "Contraseña",
+    name: "contrasenia",
     required: true
 }]

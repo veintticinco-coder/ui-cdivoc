@@ -16,14 +16,4 @@ main.sesion {
   .carta {
     background: transparent;
   }
-
-  span.error {
-    display: block;
-    width: 100%;
-    background-color: lighten($rojo, 15%);
-    color: $blanco;
-    padding: 2px 15px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
 }

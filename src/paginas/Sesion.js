@@ -2,56 +2,55 @@ import { useEffect, useRef, useState } from "react";
 import { FormularioSesion } from "../formularios/Sesion"
 import { Formulario } from "../utilidades";
 import { Navigate } from "react-router-dom";
+import { useDatos } from "../hooks";
 
 
 export const Sesion = () => {
     const campos = FormularioSesion;
-    const formulario = useRef();
+    const formularioRef = useRef();
+
+    const [formulario, setFormulario] = useState();
+    const { respuesta } = useDatos({ url: "Sesion", metodo: "post", formulario: formulario });
     const [error, setError] = useState();
+
     const [sesion, setSesion] = useState(() => {
-        const data = JSON.parse(localStorage.getItem("sesion"));
-        return data || null;
+        return JSON.parse(localStorage.getItem("sesion")) || null;
     });
 
     const IniciarSesion = (event) => {
         event.preventDefault();
-        let data = new FormData(formulario.current);
+        let datos = new FormData(formularioRef.current);
 
-        const usuario = data.get("Usuario");
-        const password = data.get("Contraseña");
-
-        if (usuario === "admin" && password === "admin") {
-            const sesion = {
-                usuario: usuario,
-                perfil: "ADMIN"
-            }
-
-            setSesion({ ...sesion });
-        } else if (usuario === "cliente" && password === "cliente") {
-            const sesion = {
-                usuario: usuario,
-                perfil: "CLIENTE"
-            }
-
-            setSesion({ ...sesion });
-        } else {
-            setError("Usuario o contraseña incorrecta");
-
-            setTimeout(() => {
-                setError();
-            }, 3000);
-        }
+        datos && setFormulario(datos);
     }
 
     useEffect(() => {
         localStorage.setItem("sesion", JSON.stringify(sesion));
     }, [sesion]);
 
+    useEffect(() => {
+        if (!respuesta || !respuesta.respuesta) return;
+
+        const datosResp = respuesta.respuesta.Datos;
+
+        if (!datosResp || datosResp.length <= 0) {
+            setError("Usuario o contraseña incorrecta");
+
+            setTimeout(() => {
+                setError();
+            }, 3000);
+
+            return;
+        }
+
+        setSesion({ ...datosResp });
+    }, [respuesta]);
+
     return (
         <div className="contenedor-sesion">
             {sesion && <Navigate to="/" />}
             <div className="carta">
-                <form method="post" ref={formulario} onSubmit={IniciarSesion}>
+                <form method="post" ref={formularioRef} onSubmit={IniciarSesion}>
                     {campos.map(campo => <Formulario key={campo.name} {...campo} />)}
                     {error && <span className="error">{error}</span>}
                     <button type="submit" className="boton-verde" onClick={IniciarSesion}>Ingresar</button>

@@ -27,6 +27,7 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
                 respuesta: null,
                 error: "Hubo un error"
             });
+            return;
         }
 
         const data = await datos.json();
@@ -35,7 +36,7 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
             cargando: false,
             respuesta: data,
             error: null
-        })
+        });
     }, [ruta, metodo, formulario]);
 
     useEffect(() => {

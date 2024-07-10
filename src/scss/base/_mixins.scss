@@ -41,3 +41,57 @@
     background-color: darken($color, 5);
   }
 }
+
+@mixin contorno($color) {
+  background-color: $blanco;
+  color: $negro;
+  border: solid 1px $color;
+
+  &:hover {
+    background-color: $color;
+    color: $blanco;
+  }
+}
+
+@mixin estatus($color) {
+  display: block;
+  width: 100%;
+  background-color: $color;
+  color: $blanco;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+@mixin flecha($posicion) {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border: solid transparent;
+    width: 0;
+    height: 0;
+
+    @if $posicion == arriba {
+      bottom: 100%;
+      left: 45%;
+    }
+
+    @if $posicion == abajo {
+      top: 100%;
+      left: 45%;
+    }
+
+    @if $posicion == izquierda {
+      right: 100%;
+      top: 30%;
+    }
+
+    @if $posicion == derecha {
+      left: 100%;
+      top: 30%;
+    }
+  }
+}

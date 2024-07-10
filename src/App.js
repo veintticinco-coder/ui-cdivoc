@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Clientes, Inicio, NuevoViaje, Sesion } from './paginas';
+import { Clientes, Inicio, Viajes, NuevoViaje, Sesion } from './paginas';
 import { Menu } from "./utilidades";
 import { useState } from "react";
 
@@ -20,9 +20,11 @@ export function App() {
       <div className={`contenido-encabezado ${pathname === "/Sesion" ? "sesion" : ""}`}></div>
       <main className={pathname === "/Sesion" ? "sesion" : ""}>
         <Routes>
-          {sesion && sesion.perfil === "ADMIN" ? <>
+          {sesion && sesion.role === "ADMINISTRADOR" ? <>
             <Route exact path="/" element={<Inicio />} />
             <Route exact path="/Clientes" element={<Clientes />} />
+            <Route exact path="/Viajes" element={<Viajes />} />
+            <Route exact path="/NuevoViaje" element={<NuevoViaje />} />
           </> :
             <Route exact path="/" element={<NuevoViaje />} />}
           <Route exact path="/Sesion" element={<Sesion />} />
@@ -32,11 +34,23 @@ export function App() {
         <footer className="pie">
           <div className="contenedor">
             <nav className="navegacion">
-              <li><a href="/" className="link">Inicio</a></li>
-              <li><a href="/Clientes" className="link">Clientes</a></li>
-              <li><a href="/Servicios" className="link">Servicios</a></li>
-              <li><a href="/Conductores" className="link">Conductores</a></li>
-              <li><a href="/Unidades" className="link">Unidades</a></li>
+              {sesion && sesion.role === "ADMINISTRADOR" && <>
+                <li><a href="/" className="link">
+                  <i className="fa-solid fa-house"></i> Inicio</a>
+                </li>
+                <li><a href="/Clientes" className="link">
+                  <i className="fa-solid fa-users"></i> Clientes</a>
+                </li>
+                <li><a href="/Viajes" className="link">
+                  <i className="fa-solid fa-taxi"></i> Viajes</a>
+                </li>
+                <li><a href="/Conductores" className="link">
+                  <i className="fa-solid fa-users-gear"></i> Conductores</a
+                ></li>
+                <li><a href="/Unidades" className="link">
+                  <i className="fa-solid fa-car"></i> Unidades</a>
+                </li>
+              </>}
             </nav>
 
             <p>Todos los derechos reservados &copy;</p>

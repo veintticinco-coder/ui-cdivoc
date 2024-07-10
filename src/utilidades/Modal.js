@@ -1,27 +1,34 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDatos } from "../hooks";
 import { Formulario } from "./Formulario";
 
-export const Modal = ({ url, metodo, campos, modal, recargar }) => {
+export const Modal = ({ url, metodo, campos, modal, buscar }) => {
     const formulario = useRef();
 
     const [informacion, setInformacion] = useState({
         url: url,
-        tipo: metodo,
+        metodo: metodo,
         formulario: null
     });
 
     const { respuesta } = useDatos({ ...informacion });
 
-    const Guardar = () => {
+    const Guardar = (event) => {
+        event.preventDefault();
         const datos = new FormData(formulario.current);
 
         setInformacion({
             ...informacion,
-            formulario: datos,
-            accion: recargar
+            formulario: datos
         });
     }
+
+    useEffect(() => {
+        if (!respuesta.respuesta && !respuesta.cargando) return;
+
+        modal(false);
+        buscar();
+    }, [respuesta, modal, buscar]);
 
     return (
         <>
@@ -49,7 +56,7 @@ export const Modal = ({ url, metodo, campos, modal, recargar }) => {
                                 className="boton-gris"
                                 onClick={() => modal(false)}>Cancelar
                             </button>
-                            <button type="button"
+                            <button type="submit"
                                 className="boton-azul"
                                 onClick={Guardar}>Guardar
                             </button>

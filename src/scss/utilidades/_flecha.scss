@@ -1,0 +1,59 @@
+.flecha_arriba {
+  @include flecha("arriba");
+
+  &::before {
+    border-bottom-color: silver;
+    border-width: 21px;
+    margin-left: -1px;
+  }
+
+  &::after {
+    border-bottom-color: $blanco;
+    border-width: 20px;
+  }
+}
+
+.flecha_abajo {
+  @include flecha("abajo");
+
+  &::before {
+    border-top-color: silver;
+    border-width: 21px;
+    margin-left: -1px;
+  }
+
+  &::after {
+    border-top-color: $blanco;
+    border-width: 20px;
+  }
+}
+
+.flecha_izquierda {
+  @include flecha("izquierda");
+
+  &::before {
+    border-right-color: silver;
+    border-width: 21px;
+    margin-top: -1px;
+  }
+
+  &::after {
+    border-right-color: $blanco;
+    border-width: 20px;
+  }
+}
+
+.flecha_derecha {
+  @include flecha("derecha");
+
+  &::before {
+    border-left-color: silver;
+    border-width: 21px;
+    margin-top: -1px;
+  }
+
+  &::after {
+    border-left-color: $blanco;
+    border-width: 20px;
+  }
+}
