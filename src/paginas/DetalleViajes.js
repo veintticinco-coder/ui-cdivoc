@@ -6,7 +6,9 @@ export const DetalleViajes = () => {
     return (
         <>
             <div className="contenedor-extra columnas-3">
-                <div className="carta-encabezado"><h2></h2></div>
+                <div className="carta">
+                    <div className="carta-encabezado"><h2></h2></div>
+                </div>
                 <div className="carta">x</div>
                 <div className="carta">x</div>
             </div>
