@@ -13,8 +13,7 @@ export const Modal = ({ url, metodo, campos, modal, buscar }) => {
 
     const { respuesta } = useDatos({ ...informacion });
 
-    const Guardar = (event) => {
-        event.preventDefault();
+    const Guardar = () => {
         const datos = new FormData(formulario.current);
 
         setInformacion({
@@ -24,7 +23,7 @@ export const Modal = ({ url, metodo, campos, modal, buscar }) => {
     }
 
     useEffect(() => {
-        if (!respuesta.respuesta && !respuesta.cargando) return;
+        if (!respuesta.respuesta && !respuesta.completdo) return;
 
         modal(false);
         buscar();
@@ -56,7 +55,7 @@ export const Modal = ({ url, metodo, campos, modal, buscar }) => {
                                 className="boton-gris"
                                 onClick={() => modal(false)}>Cancelar
                             </button>
-                            <button type="submit"
+                            <button type="button"
                                 className="boton-azul"
                                 onClick={Guardar}>Guardar
                             </button>

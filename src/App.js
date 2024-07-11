@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Clientes, Inicio, Viajes, NuevoViaje, Sesion } from './paginas';
+import { Clientes, Inicio, Viajes, NuevoViaje, Sesion, DetalleViajes } from './paginas';
 import { Menu } from "./utilidades";
 import { useState } from "react";
 
@@ -25,6 +25,7 @@ export function App() {
             <Route exact path="/Clientes" element={<Clientes />} />
             <Route exact path="/Viajes" element={<Viajes />} />
             <Route exact path="/NuevoViaje" element={<NuevoViaje />} />
+            <Route exact path="/DetalleViajes/:id_servicio" element={<DetalleViajes />} />
           </> :
             <Route exact path="/" element={<NuevoViaje />} />}
           <Route exact path="/Sesion" element={<Sesion />} />

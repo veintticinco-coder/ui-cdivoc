@@ -75,7 +75,8 @@ export const Tabla = ({ url, campos }) => {
                         {buscando ?
                             <tr>
                                 <td style={{ textAlign: "center" }} colSpan={campos.length}><Spinner /></td>
-                            </tr> : registros && registros.respuesta ? <Lista /> :
+                            </tr> : registros && registros.respuesta && registros.respuesta.Datos.length > 0 ?
+                                <Lista /> :
                                 <tr>
                                     <td style={{ textAlign: "center" }}
                                         colSpan={campos.length}>

@@ -14,7 +14,7 @@ export const NuevoViaje = () => {
     const [destino, setDestino] = useState({ lat: null, lng: null, descripcion: "" });
     const [estatus, setEstatus] = useState({ error: -1, mensaje: "", valor: -1 });
 
-    const { Encabezado, Fecha, Rutas, Extras } = FormularioViajes({
+    const { Encabezado, Fecha, Rutas } = FormularioViajes({
         origen: origen.descripcion, destino: destino.descripcion
     });
 
@@ -61,7 +61,7 @@ export const NuevoViaje = () => {
     }
 
     useEffect(() => {
-        respuesta && respuesta.respuesta && setEstatus({ ...respuesta.respuesta.Datos[0] });
+        respuesta && respuesta.respuesta && setEstatus({ ...respuesta.respuesta.Datos });
 
         setTimeout(() => {
             setEstatus({ error: -1, mensaje: "", valor: -1 });
@@ -86,11 +86,6 @@ export const NuevoViaje = () => {
                         {Rutas.map(campo => <Formulario key={`Rutas${campo.name}`} {...campo} />)}
                     </div>
                     <Mapa origen={origen} destino={destino} nuevaCoordenada={nuevaCoordenada} />
-                </div>
-                <div className="carta">
-                    <div className="columnas-2">
-                        {Extras.map(campo => <Formulario key={`Extras${campo.name}`} {...campo} />)}
-                    </div>
                 </div>
                 <div className="alinear-derecha">
                     {estatus.error >= 0 &&

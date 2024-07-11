@@ -1,7 +1,7 @@
 export const Formulario = ({ type, label, name, required, className = null, options = [], value }) => {
     return (
         <>
-            {(type !== "select" && type !== "textarea") &&
+            {(type !== "select" && type !== "textarea" && type !== "options") &&
                 <div className="campos">
                     <label>{label} {required && <span className="requerido">*</span>}</label>
                     <input type={type} name={name} required={required ? true : false}

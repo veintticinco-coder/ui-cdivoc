@@ -26,10 +26,10 @@ export const FormularioViajes = ({ origen, destino }) => {
         required: true
     },
     {
-        type: "time",
-        label: "Hora",
-        name: "hora",
-        required: true
+        type: "number",
+        label: "# de Pasajeros",
+        name: "pasajeros",
+        required: "true"
     }];
 
     const Rutas = [{
@@ -47,18 +47,10 @@ export const FormularioViajes = ({ origen, destino }) => {
         required: true
     }];
 
-    const Extras = [{
-        type: "number",
-        label: "# de Pasajeros",
-        name: "pasajeros",
-        required: "true"
-    }]
-
     return {
         Encabezado,
         Fecha,
-        Rutas,
-        Extras
+        Rutas
     }
 }
 

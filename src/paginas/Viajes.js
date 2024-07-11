@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { useDatos } from "../hooks"
 
 
 export const Viajes = () => {
     const { respuesta: { respuesta: Viajes } } = useDatos({ url: "Viajes", metodo: "GET" });
+    const navigate = useNavigate();
 
     const Estatus = ({ estatus }) => {
         let Icono = () => {
@@ -26,19 +28,31 @@ export const Viajes = () => {
         );
     }
 
+    const navegar = (datos) => {
+        navigate(`/DetalleViajes/${datos.id_servicio}`, { state: datos });
+    }
+
     return (
         <div className="contenedor-extra">
             <div className="columnas-3">
                 {Viajes && Viajes.Datos.map(viaje => {
                     return (
-                        <div className="carta viajes">
-                            <label className="negrita">Tipo Servicio:</label>
-                            <span>{viaje.tipo_servicio}</span>
-                            <label className="negrita">Cliente:</label>
-                            <span>{viaje.nombre_cliente}</span>
-                            <label className="negrita">Estatus:</label>
-                            <Estatus estatus={viaje.estatus} />
-                            {/* <span className={viaje.estatus.toLowerCase().replace(/ /g, "")}>{viaje.estatus}</span> */}
+                        <div className="carta viajes" key={`Viaje${viaje.id_servicio}`}>
+                            <div className="campos">
+                                <label className="negrita">Tipo Servicio:</label>
+                                <span>{viaje.tipo_servicio}</span>
+                            </div>
+                            <div className="campos">
+                                <label className="negrita">Cliente:</label>
+                                <span>{viaje.nombre_cliente}</span>
+                            </div>
+                            <div className="campos">
+                                <label className="negrita">Estatus:</label>
+                                <Estatus estatus={viaje.estatus} />
+                            </div>
+                            <div className="campos alinear-derecha">
+                                <button type="button" className="boton-azul" onClick={() => navegar(viaje)}>Ver Detalle</button>
+                            </div>
                         </div>
                     )
                 })}

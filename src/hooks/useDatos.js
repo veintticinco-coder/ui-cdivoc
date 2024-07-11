@@ -4,7 +4,8 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
     const [respuesta, setRespuesta] = useState({
         cargando: false,
         respuesta: null,
-        error: null
+        error: null,
+        completdo: false
     });
 
     const ruta = `http://localhost:3002/${url}`;

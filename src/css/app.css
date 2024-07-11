@@ -508,43 +508,43 @@ img {
 
 span.error,
 span.cancelado {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #f34141;
   color: #fff;
   padding: 0 15px;
-  margin-bottom: 5px;
   border-radius: 5px;
 }
 
 span.correcto,
 span.terminado {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #12c712;
   color: #fff;
   padding: 0 15px;
-  margin-bottom: 5px;
   border-radius: 5px;
 }
 
 span.pendiente {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #e9d502;
   color: #fff;
   padding: 0 15px;
-  margin-bottom: 5px;
   border-radius: 5px;
 }
 
 span.encurso {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #067288;
   color: #fff;
   padding: 0 15px;
-  margin-bottom: 5px;
   border-radius: 5px;
 }
 
@@ -652,7 +652,10 @@ select {
   justify-content: space-between;
   line-height: 0;
   background-color: #f1f1f1;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #848484;
+}
+.modal-encabezado h2 {
+  color: #848484;
 }
 .modal-encabezado span {
   display: flex;
@@ -679,7 +682,7 @@ select {
 }
 
 .modal-pie {
-  border-top: solid 1px #333;
+  border-top: solid 1px #848484;
 }
 
 .contenedor-tabla {
@@ -813,7 +816,7 @@ select {
   gap: 15px;
   grid-template-columns: repeat(2, 1fr);
 }
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
   .columnas-2 {
     display: grid;
     gap: 15px;
@@ -826,7 +829,7 @@ select {
   gap: 15px;
   grid-template-columns: repeat(3, 1fr);
 }
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
   .columnas-3 {
     display: grid;
     gap: 15px;

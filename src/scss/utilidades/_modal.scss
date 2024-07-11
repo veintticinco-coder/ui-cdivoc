@@ -48,7 +48,11 @@
   justify-content: space-between;
   line-height: 0;
   background-color: $gris;
-  border-bottom: 1px solid $negro;
+  border-bottom: 1px solid $plateado;
+
+  h2 {
+    color: $plateado;
+  }
 
   span {
     display: flex;
@@ -78,5 +82,5 @@
 }
 
 .modal-pie {
-  border-top: solid 1px $negro;
+  border-top: solid 1px $plateado;
 }

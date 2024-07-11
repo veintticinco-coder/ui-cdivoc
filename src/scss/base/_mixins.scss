@@ -54,12 +54,12 @@
 }
 
 @mixin estatus($color) {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: $color;
   color: $blanco;
   padding: 0 15px;
-  margin-bottom: 5px;
   border-radius: 5px;
 }
 
