@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const ruta = process.env.RUTA;
+const urlBackend = process.env.REACT_APP_RUTA;
 
 export const useDatos = ({ url, metodo, formulario = null }) => {
     const [respuesta, setRespuesta] = useState({
@@ -10,7 +10,9 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
         completdo: false
     });
 
-    const ruta = `${ruta}${url}`;
+    console.log(urlBackend);
+
+    const ruta = `${urlBackend}${url}`;
 
     const Enviar = useCallback(async () => {
         setRespuesta({
