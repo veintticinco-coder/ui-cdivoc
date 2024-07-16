@@ -129,6 +129,16 @@ img {
   height: 50px;
 }
 
+.texto-verde {
+  color: $verde;
+}
+
+.direccion {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
 .bloqueo {
   position: fixed;
   top: 0;

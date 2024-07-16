@@ -19,12 +19,12 @@ label {
 .textos {
   padding: 7px;
   border: 1px solid silver;
-  border-radius: 5px;
+  border-radius: 3px;
   color: $negro;
   outline: none;
 
   &:focus {
-    border-color: $azul;
+    border-color: $negro;
   }
 }
 

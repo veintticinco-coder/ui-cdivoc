@@ -11,7 +11,7 @@
 .carta {
   background-color: $blanco;
   padding: 10px 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 15px;
   margin-bottom: 15px;
 
@@ -22,4 +22,8 @@
     color: $negro;
     letter-spacing: 2px;
   }
+}
+
+.carta-encabezado {
+  border-bottom: solid 1px $plateado;
 }

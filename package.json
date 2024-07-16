@@ -2,14 +2,16 @@
   "name": "ui-cdivoc",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3002",
   "dependencies": {
+    "@ericz1803/react-google-calendar": "^4.3.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@vis.gl/react-google-maps": "^1.0.2",
     "dotenv": "^16.4.5",
     "env-cmd": "^10.1.0",
+    "gapi": "^0.0.3",
+    "gapi-script": "^1.2.0",
     "google-map-react": "^2.2.1",
     "gulp": "^5.0.0",
     "gulp-sass": "^5.1.0",
@@ -17,6 +19,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-autocomplete": "^2.7.3",
+    "react-google-calendar-api": "^2.3.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-simple-maps": "^3.0.0",
@@ -28,7 +31,8 @@
     "start": "env-cmd react-scripts start",
     "build": "env-cmd react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "gulp dev"
   },
   "eslintConfig": {
     "extends": [

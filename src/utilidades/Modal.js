@@ -52,7 +52,7 @@ export const Modal = ({ url, metodo, campos, modal, buscar }) => {
                     <div className="modal-pie">
                         <div className="alinear-derecha contenedor-boton">
                             <button type="button"
-                                className="boton-gris"
+                                className="boton-gris contorno"
                                 onClick={() => modal(false)}>Cancelar
                             </button>
                             <button type="button"

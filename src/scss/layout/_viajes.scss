@@ -5,3 +5,16 @@
     border-right: solid 1px $blanco;
   }
 }
+
+.origen,
+.destino {
+  border: solid 1px $plateado;
+  margin-top: 5px;
+  padding: 3px 10px;
+}
+
+.costo-pasajeros {
+  display: flex;
+  justify-content: space-around;
+  color: $azul;
+}

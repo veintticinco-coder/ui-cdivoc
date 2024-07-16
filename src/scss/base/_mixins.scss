@@ -33,8 +33,8 @@
   background-color: $color;
   color: $blanco;
   border: none;
-  border-radius: 5px;
-  padding: 15px;
+  border-radius: 3px;
+  padding: 10px 15px;
   cursor: pointer;
 
   &:hover {
@@ -46,6 +46,7 @@
   background-color: $blanco;
   color: $negro;
   border: solid 1px $color;
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover {
     background-color: $color;
