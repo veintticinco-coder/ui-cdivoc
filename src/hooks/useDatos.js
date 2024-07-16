@@ -10,7 +10,7 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
         completdo: false
     });
 
-    const ruta = `${urlBackend}${url}`;
+    const ruta = `${urlBackend}/${url}`;
 
     const Enviar = useCallback(async () => {
         setRespuesta({
