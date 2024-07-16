@@ -12,6 +12,8 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
 
     const ruta = `${urlBackend}/${url}`;
 
+    // Texto comentado
+
     const Enviar = useCallback(async () => {
         setRespuesta({
             cargando: true,
