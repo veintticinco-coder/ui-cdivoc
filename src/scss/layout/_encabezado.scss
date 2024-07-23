@@ -166,21 +166,3 @@
   height: 561px;
   margin: auto;
 }
-
-.contenedor-busqueda {
-  width: 40%;
-  height: 40px;
-  display: flex;
-
-  .textos {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .boton-gris {
-    padding: 5px 15px;
-
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-}

@@ -67,7 +67,7 @@ export const Tabla = ({ url, campos }) => {
                     <thead>
                         <tr>
                             {campos.map((titulo, key) => {
-                                return <td key={`${key}-${titulo.name}`}>{titulo.label}</td>
+                                return <th key={`${key}-${titulo.name}`}>{titulo.label}</th>
                             })}
                         </tr>
                     </thead>

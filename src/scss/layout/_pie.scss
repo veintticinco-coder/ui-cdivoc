@@ -1,7 +1,8 @@
 .pie {
   min-height: 200px;
-  background-color: $negro;
+  background-color: lighten($negro, 5);
   padding: 30px 0;
+  margin-top: 15px;
 
   .navegacion {
     justify-content: start;

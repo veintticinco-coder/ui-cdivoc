@@ -7,7 +7,7 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
         cargando: false,
         respuesta: null,
         error: null,
-        completdo: false
+        completado: false
     });
 
     const ruta = `${urlBackend}/${url}`;
@@ -37,11 +37,14 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
 
         const data = await datos.json();
 
-        setRespuesta({
-            cargando: false,
-            respuesta: data,
-            error: null
-        });
+        setTimeout(() => {
+            setRespuesta({
+                cargando: false,
+                respuesta: data,
+                error: null
+            });
+        }, 1500)
+
     }, [ruta, metodo, formulario]);
 
     useEffect(() => {

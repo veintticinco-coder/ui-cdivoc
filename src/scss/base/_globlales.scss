@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background-color: $gris;
+  background-color: $negro;
 }
 
 *,
@@ -74,7 +74,9 @@ h3 {
 }
 
 .contenedor-boton {
-  margin: 10px 0;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .boton-azul {
@@ -188,5 +190,59 @@ span.encurso {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.contenedor-busqueda {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 5px;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .busqueda {
+    display: flex;
+    gap: 10px;
+
+    select {
+      background-color: $blanco;
+    }
+
+    .contenedor-boton {
+      margin: 0;
+    }
+  }
+
+  .textos {
+    font-size: 20px;
+  }
+
+  .contenedor-boton .textos {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .boton-gris {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .boton-azul {
+    text-align: center;
+  }
+
+  select.textos {
+    width: 200px;
+
+    @include tablet {
+      width: 100%;
+    }
   }
 }

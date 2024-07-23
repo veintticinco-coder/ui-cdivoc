@@ -6,3 +6,4 @@ export * from "./Spinner";
 export * from "./Grafica";
 export * from "./Mapas";
 export * from "./EstatusViaje";
+export * from "./Busqueda";

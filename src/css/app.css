@@ -314,7 +314,7 @@ html {
 }
 
 body {
-  background-color: #f1f1f1;
+  background-color: #4c4e4f;
 }
 
 *,
@@ -381,7 +381,9 @@ h3 {
 }
 
 .contenedor-boton {
-  margin: 10px 0;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .boton-azul {
@@ -580,6 +582,54 @@ span.encurso {
     transform: rotate(360deg);
   }
 }
+a {
+  text-decoration: none;
+}
+
+.contenedor-busqueda {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 5px;
+}
+@media (max-width: 768px) {
+  .contenedor-busqueda {
+    flex-direction: column;
+  }
+}
+.contenedor-busqueda .busqueda {
+  display: flex;
+  gap: 10px;
+}
+.contenedor-busqueda .busqueda select {
+  background-color: #fff;
+}
+.contenedor-busqueda .busqueda .contenedor-boton {
+  margin: 0;
+}
+.contenedor-busqueda .textos {
+  font-size: 20px;
+}
+.contenedor-busqueda .contenedor-boton .textos {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.contenedor-busqueda .boton-gris {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.contenedor-busqueda .boton-azul {
+  text-align: center;
+}
+.contenedor-busqueda select.textos {
+  width: 200px;
+}
+@media (max-width: 768px) {
+  .contenedor-busqueda select.textos {
+    width: 100%;
+  }
+}
+
 .formulario {
   margin-bottom: 5px;
 }
@@ -708,7 +758,6 @@ select {
 .tabla-opciones {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
 }
 .tabla-opciones .busqueda {
   display: flex;
@@ -726,7 +775,7 @@ select {
 }
 .tabla thead tr {
   background-color: #e7eaef;
-  color: #4c4e4f;
+  color: #727476;
   text-transform: capitalize;
   border-bottom: 1px solid #4c4e4f;
 }
@@ -749,12 +798,17 @@ select {
   }
 }
 
+.cartas-columnas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
 .carta {
   background-color: #fff;
   padding: 10px 30px;
   border-radius: 5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 .carta h1,
 .carta h2,
@@ -1121,25 +1175,11 @@ select {
   margin: auto;
 }
 
-.contenedor-busqueda {
-  width: 40%;
-  height: 40px;
-  display: flex;
-}
-.contenedor-busqueda .textos {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.contenedor-busqueda .boton-gris {
-  padding: 5px 15px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .pie {
   min-height: 200px;
-  background-color: #4c4e4f;
+  background-color: #595b5c;
   padding: 30px 0;
+  margin-top: 15px;
 }
 .pie .navegacion {
   justify-content: start;
@@ -1189,4 +1229,15 @@ main.sesion {
   display: flex;
   justify-content: space-around;
   color: #2289e5;
+}
+
+.contenedor-viajes {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.lista-eventos {
+  max-height: 450px;
+  overflow-y: scroll;
+  padding: 15px;
 }

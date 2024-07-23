@@ -18,3 +18,14 @@
   justify-content: space-around;
   color: $azul;
 }
+
+.contenedor-viajes {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.lista-eventos {
+  max-height: 450px;
+  overflow-y: scroll;
+  padding: 15px;
+}

@@ -23,7 +23,7 @@ export const Modal = ({ url, metodo, campos, modal, buscar }) => {
     }
 
     useEffect(() => {
-        if (!respuesta.respuesta && !respuesta.completdo) return;
+        if (!respuesta.respuesta && !respuesta.completado) return;
 
         modal(false);
         buscar();
