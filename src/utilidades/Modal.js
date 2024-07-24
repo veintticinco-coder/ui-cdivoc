@@ -6,7 +6,7 @@ export const Modal = ({ url, metodo, campos, modal, buscar }) => {
     const formulario = useRef();
 
     const [informacion, setInformacion] = useState({
-        url: url,
+        url: `${url}/Registrar`,
         metodo: metodo,
         formulario: null
     });

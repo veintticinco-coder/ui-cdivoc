@@ -12,8 +12,6 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
 
     const ruta = `${urlBackend}/${url}`;
 
-    // Texto comentado
-
     const Enviar = useCallback(async () => {
         setRespuesta({
             cargando: true,
@@ -38,13 +36,11 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
 
         const data = await datos.json();
 
-        setTimeout(() => {
-            setRespuesta({
-                cargando: false,
-                respuesta: data,
-                error: null
-            });
-        }, 1500)
+        setRespuesta({
+            cargando: false,
+            respuesta: data,
+            error: null
+        });
 
     }, [ruta, metodo, formulario]);
 
