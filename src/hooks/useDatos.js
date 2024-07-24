@@ -23,7 +23,8 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
 
         const datos = await fetch(ruta, {
             method: metodo,
-            body: formulario
+            body: formulario,
+            mode: "cors"
         });
 
         if (!datos.ok) {
