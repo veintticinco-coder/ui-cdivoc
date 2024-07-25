@@ -27,41 +27,42 @@ export const Menu = ({ menu, VerMenu }) => {
 
     return (
         <>
-            {!sesion && <Navigate to="/Sesion" />}
-            <div className="barra">
-                <span className="boton-menu" onClick={() => VerMenu(true)}><i className="fa-solid fa-bars"></i></span>
-                <div className="contenedor-extra contenedor-navegacion">
-                    <a href="/"><img src={Logo} alt="Logo" /></a>
-                    <nav id="nav-menu" className={`navegacion ${menu ? "abierto" : "cerrado"}`}>
-                        <li className="barra-izquierda">
-                            <h3>Menú</h3>
-                            <span className="cerrar-menu" onClick={() => VerMenu(false)}>X</span>
-                        </li>
-                        {sesion && sesion.role === "ADMINISTRADOR" &&
-                            <>
-                                <li><a href="/" className="link">
-                                    <i className="fa-solid fa-house"></i> Inicio</a>
-                                </li>
-                                <li><a href="/Clientes" className="link">
-                                    <i className="fa-solid fa-users"></i> Clientes</a>
-                                </li>
-                                <li><a href="/Viajes" className="link">
-                                    <i className="fa-solid fa-taxi"></i> Viajes</a>
-                                </li>
-                                <li><a href="/Conductores" className="link">
-                                    <i className="fa-solid fa-users-gear"></i> Conductores</a
-                                ></li>
-                                <li><a href="/Unidades" className="link">
-                                    <i className="fa-solid fa-car"></i> Unidades</a>
-                                </li>
-                            </>}
-                        <li>
-                            <button type="button" className="boton-gris" onClick={CerrarSesion}>
-                                <i className="fa-solid fa-right-from-bracket"></i>Salir</button>
-                        </li>
-                    </nav>
+            {!sesion ? <Navigate to="/Sesion" /> :
+                <div className="barra">
+                    <span className="boton-menu" onClick={() => VerMenu(true)}><i className="fa-solid fa-bars"></i></span>
+                    <div className="contenedor-extra contenedor-navegacion">
+                        <a href="/"><img src={Logo} alt="Logo" /></a>
+                        <nav id="nav-menu" className={`navegacion ${menu ? "abierto" : "cerrado"}`}>
+                            <li className="barra-izquierda">
+                                <h3>Menú</h3>
+                                <span className="cerrar-menu" onClick={() => VerMenu(false)}>X</span>
+                            </li>
+                            {sesion && sesion.idrole === 1 &&
+                                <>
+                                    <li><a href="/" className="link">
+                                        <i className="fa-solid fa-house"></i> Inicio</a>
+                                    </li>
+                                    <li><a href="/Clientes" className="link">
+                                        <i className="fa-solid fa-users"></i> Clientes</a>
+                                    </li>
+                                    <li><a href="/Viajes" className="link">
+                                        <i className="fa-solid fa-taxi"></i> Viajes</a>
+                                    </li>
+                                    <li><a href="/Conductores" className="link">
+                                        <i className="fa-solid fa-users-gear"></i> Conductores</a
+                                    ></li>
+                                    <li><a href="/Unidades" className="link">
+                                        <i className="fa-solid fa-car"></i> Unidades</a>
+                                    </li>
+                                </>}
+                            <li>
+                                <button type="button" className="boton-gris" onClick={CerrarSesion}>
+                                    <i className="fa-solid fa-right-from-bracket"></i>Salir</button>
+                            </li>
+                        </nav>
+                    </div>
                 </div>
-            </div>
+            }
         </>
     )
 }

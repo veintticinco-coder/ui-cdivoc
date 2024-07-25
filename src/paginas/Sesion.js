@@ -48,14 +48,15 @@ export const Sesion = () => {
 
     return (
         <div className="contenedor-sesion">
-            {sesion && <Navigate to="/" />}
-            <div className="carta">
-                <form method="post" ref={formularioRef} onSubmit={IniciarSesion}>
-                    {campos.map(campo => <Formulario key={campo.name} {...campo} />)}
-                    {error && <span className="error">{error}</span>}
-                    <button type="submit" className="boton-verde" onClick={IniciarSesion}>Ingresar</button>
-                </form>
-            </div>
+            {sesion ? <Navigate to="/" /> :
+                <div className="carta">
+                    <form method="post" ref={formularioRef} onSubmit={IniciarSesion}>
+                        {campos.map(campo => <Formulario key={campo.name} {...campo} />)}
+                        {error && <span className="error">{error}</span>}
+                        <button type="submit" className="boton-verde" onClick={IniciarSesion}>Ingresar</button>
+                    </form>
+                </div>
+            }
         </div>
     )
 }

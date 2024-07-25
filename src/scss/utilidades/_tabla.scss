@@ -25,18 +25,44 @@
   margin-bottom: 5px;
 
   thead tr {
-    background-color: $plateado;
-    color: lighten($negro, 15);
     text-transform: capitalize;
-    border-bottom: 1px solid $negro;
+    border-bottom: 2px solid $gris;
+    background-color: darken($gris, 2);
   }
 
   tbody tr {
-    border-bottom: solid 2px $gris;
+    border-bottom: solid 1px $gris;
   }
 
   td {
     text-align: center;
     padding: 5px;
   }
+}
+
+.contenedor-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.boton-borrar,
+.boton-editar {
+  padding: 5px;
+  cursor: pointer;
+  color: $blanco;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.boton-editar {
+  background-color: $azul;
+}
+
+.boton-borrar {
+  background-color: $rojo;
 }

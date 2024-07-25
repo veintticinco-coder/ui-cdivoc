@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDatos } from "../hooks";
-import { Formulario } from "./Formulario";
 
-export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar }) => {
-    const formulario = useRef();
+export const Confirmacion = ({ url, metodo, campos, valores = [], modal, buscar }) => {
+    const [mensaje, setMensaje] = useState();
 
     const [informacion, setInformacion] = useState({
         url: url,
@@ -14,7 +13,8 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
     const { respuesta } = useDatos({ ...informacion });
 
     const Guardar = () => {
-        const datos = new FormData(formulario.current);
+        const datos = new FormData();
+        datos.append("id", valores["id"])
 
         setInformacion({
             ...informacion,
@@ -24,6 +24,11 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
 
     useEffect(() => {
         if (!respuesta.respuesta && !respuesta.completado) return;
+
+        if (respuesta.respuesta.Error === 1) {
+            setMensaje(respuesta.respuesta.Mensaje);
+            return;
+        }
 
         modal(false);
         buscar();
@@ -35,26 +40,22 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
             <div className="contenedor-modal">
                 <div className="modal">
                     <div className="modal-encabezado">
-                        <h2>{titulo}</h2>
+                        <h2>Borrar Registro</h2>
                         <span>
                             <i className="fa-solid fa-rectangle-xmark" onClick={() => modal(false)}></i>
                         </span>
                     </div>
                     <div className="modal-cuerpo">
-                        <div className="modal-contenido">
-                            <label><span className="requerido">*</span> Campos requeridos</label>
-                            <form className="formulario" ref={formulario}>
-                                {campos && campos.map(campo =>
-                                    <Formulario
-                                        key={campo.name}
-                                        {...campo}
-                                        value={valores[campo.name] && valores[campo.name]} />
-                                )}
-                                {respuesta && respuesta.Mensaje}
-                            </form>
+                        <div className="modal-contenido contenedor-datos">
+                            <span className="requerido negrita">¿Deseas borrar este registro?</span>
+                            {campos && campos.map(campo => (campo.name !== "id" && campo.type !== "options" &&
+                                <span>
+                                    <label className="negrita">{campo.name}</label> : {valores[campo.name]}
+                                </span>))}
                         </div>
                     </div>
                     <div className="modal-pie">
+                        {mensaje && mensaje}
                         <div className="alinear-derecha contenedor-boton">
                             <button type="button"
                                 className="boton-gris contorno"

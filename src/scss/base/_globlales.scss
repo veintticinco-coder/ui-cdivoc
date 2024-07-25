@@ -246,3 +246,12 @@ a {
     }
   }
 }
+
+.oculto {
+  display: none;
+}
+
+.contenedor-datos {
+  display: flex;
+  flex-direction: column;
+}

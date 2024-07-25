@@ -6,7 +6,6 @@
   margin-bottom: 10px;
 }
 
-label,
 .textos {
   display: block;
   width: 100%;
@@ -28,6 +27,27 @@ label {
   }
 }
 
-select{
+.etiqueta {
+  display: flex;
+  position: relative;
+
+  .textos {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  span:first-child {
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: $azul;
+    color: $blanco;
+    padding: 8px;
+    margin-left: -4px;
+    border-radius: 7px 0 0 7px;
+  }
+}
+
+select {
   background-color: transparent;
 }

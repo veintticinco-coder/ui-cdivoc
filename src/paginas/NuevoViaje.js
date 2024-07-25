@@ -113,7 +113,7 @@ export const NuevoViaje = () => {
         setTimeout(() => {
             setEstatus({ error: -1, mensaje: "", valor: -1 });
         }, 3000);
-    }, [respuesta]);
+    }, [respuesta, formulario]);
 
     return (
         <div className="contenedor-pequenio">
