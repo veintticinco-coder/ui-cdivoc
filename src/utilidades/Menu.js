@@ -37,31 +37,32 @@ export const Menu = ({ menu, VerMenu }) => {
                                 <h3>Menú</h3>
                                 <span className="cerrar-menu" onClick={() => VerMenu(false)}>X</span>
                             </li>
+                            <li><a href="/" className="link">
+                                <i className="fa-solid fa-house"></i> Inicio</a>
+                            </li>
+                            {sesion && (sesion.idrole === 1 || sesion.idrole === 5) &&
+                                <li><a href="/Clientes" className="link">
+                                    <i className="fa-solid fa-users"></i> Clientes</a>
+                                </li>}
                             {sesion && sesion.idrole === 1 &&
-                                <>
-                                    <li><a href="/" className="link">
-                                        <i className="fa-solid fa-house"></i> Inicio</a>
-                                    </li>
-                                    <li><a href="/Clientes" className="link">
-                                        <i className="fa-solid fa-users"></i> Clientes</a>
-                                    </li>
-                                    <li><a href="/Viajes" className="link">
-                                        <i className="fa-solid fa-taxi"></i> Viajes</a>
-                                    </li>
-                                    <li><a href="/Conductores" className="link">
-                                        <i className="fa-solid fa-users-gear"></i> Conductores</a
-                                    ></li>
-                                    <li><a href="/Unidades" className="link">
-                                        <i className="fa-solid fa-car"></i> Unidades</a>
-                                    </li>
-                                </>}
+                                <li><a href="/Viajes" className="link">
+                                    <i className="fa-solid fa-taxi"></i> Viajes</a>
+                                </li>}
+                            {sesion && sesion.idrole === 1 &&
+                                <li><a href="/Conductores" className="link">
+                                    <i className="fa-solid fa-users-gear"></i> Conductores</a
+                                ></li>}
+                            {sesion && (sesion.idrole === 1 || sesion.idrole === 5) &&
+                                <li><a href="/Unidades" className="link">
+                                    <i className="fa-solid fa-car"></i> Unidades</a>
+                                </li>}
                             <li>
                                 <button type="button" className="boton-gris" onClick={CerrarSesion}>
                                     <i className="fa-solid fa-right-from-bracket"></i>Salir</button>
                             </li>
                         </nav>
                     </div>
-                </div>
+                </div >
             }
         </>
     )

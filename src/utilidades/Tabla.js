@@ -27,8 +27,7 @@ export const Tabla = ({ url, campos }) => {
             {options.map(option => (<>
                 {(option === "Editar") &&
                     <span
-                        type="button"
-                        key={`Editar ${valores.id}`}
+                        key={`Editar${valores.id}`}
                         className="boton-editar"
                         onClick={() => Editar(valores)}
                         title="Editar">
@@ -38,7 +37,7 @@ export const Tabla = ({ url, campos }) => {
                 {(option === "Borrar") &&
                     <span
                         type="button"
-                        key={`Editar ${valores.id}`}
+                        key={`Borrar${valores.id}`}
                         className="boton-borrar"
                         title="Borrar"
                         onClick={() => Borrar(valores)}>
@@ -58,7 +57,7 @@ export const Tabla = ({ url, campos }) => {
                         <td key={`${key}-${titulo}-${registro[titulo.name]}`}>
                             {titulo.type !== "options" ?
                                 registro[titulo.name] :
-                                <Boton options={titulo.options} valores={registro} />}
+                                <Boton key={`Botonoes${key}`} options={titulo.options} valores={registro} />}
                         </td>
                 })}
             </tr>

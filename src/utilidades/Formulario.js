@@ -55,8 +55,6 @@ export const Formulario = ({ type, label, name, required, className = null, opti
         </>
     )
 
-
-
     return (
         <>
             {type !== "hidden" && !etiqueta && type !== "options" && <Normal />}

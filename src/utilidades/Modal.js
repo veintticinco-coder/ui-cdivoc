@@ -48,7 +48,10 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
                                     <Formulario
                                         key={campo.name}
                                         {...campo}
-                                        value={valores[campo.name] && valores[campo.name]} />
+                                        value={
+                                            valores["id_" + campo.name] ? valores["id_" + campo.name] :
+                                                valores[campo.name] && valores[campo.name]
+                                        } />
                                 )}
                                 {respuesta && respuesta.Mensaje}
                             </form>

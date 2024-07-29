@@ -1,13 +1,20 @@
 import { useDatos } from "../hooks"
 
 export const FormularioUnidades = () => {
-    const { respuesta: Marcas } = useDatos("Unidades/Marca", "GET");
+    const { respuesta: { respuesta: Marcas } } = useDatos({ url: "Unidades/Marca", method: "GET" });
 
     const Formulario = [{
+        type: "hidden",
+        label: "ID",
+        name: "id",
+        required: true
+    },
+    {
         type: "select",
         label: "Marca",
         name: "marca",
-        optios: Marcas?.Datos,
+        value: "id_marca",
+        options: Marcas?.Datos,
         required: true
     },
     {
@@ -32,7 +39,13 @@ export const FormularioUnidades = () => {
         label: "# Pasajeros",
         name: "pasajeros",
         required: true
-    }];
+    },
+    {
+        type: "options",
+        label: "Acciones",
+        options: ["Editar", "Borrar"]
+    }
+    ];
 
     return { Formulario }
 }

@@ -47,8 +47,9 @@ export const Confirmacion = ({ url, metodo, campos, valores = [], modal, buscar 
                     </div>
                     <div className="modal-cuerpo">
                         <div className="modal-contenido contenedor-datos">
+                            <span className="requerido">¿Deseas eliminiar este registro?</span>
                             {campos && campos.map(campo => (campo.name !== "id" && campo.type !== "options" &&
-                                <span>
+                                <span key={`Eliminar${campo.name}`}>
                                     <label className="negrita">{campo.name}</label> : {valores[campo.name]}
                                 </span>))}
                         </div>
