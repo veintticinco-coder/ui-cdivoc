@@ -348,7 +348,7 @@ h3 {
 }
 
 .contenido-principal {
-  min-height: 50vh;
+  min-height: 500px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -1219,7 +1219,7 @@ select {
   animation-fill-mode: forwards;
 }
 
-.contenido-encabezado {
+.contenido-encabezado.inicio {
   background-image: url("../imagenes/Baner.png");
   background-repeat: no-repeat;
   background-size: cover;

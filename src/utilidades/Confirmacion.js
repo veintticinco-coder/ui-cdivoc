@@ -47,7 +47,6 @@ export const Confirmacion = ({ url, metodo, campos, valores = [], modal, buscar 
                     </div>
                     <div className="modal-cuerpo">
                         <div className="modal-contenido contenedor-datos">
-                            <span className="requerido negrita">¿Deseas borrar este registro?</span>
                             {campos && campos.map(campo => (campo.name !== "id" && campo.type !== "options" &&
                                 <span>
                                     <label className="negrita">{campo.name}</label> : {valores[campo.name]}
@@ -62,8 +61,8 @@ export const Confirmacion = ({ url, metodo, campos, valores = [], modal, buscar 
                                 onClick={() => modal(false)}>Cancelar
                             </button>
                             <button type="button"
-                                className="boton-azul"
-                                onClick={Guardar}>Guardar
+                                className="boton-rojo"
+                                onClick={Guardar}>Eliminar
                             </button>
                         </div>
                     </div>

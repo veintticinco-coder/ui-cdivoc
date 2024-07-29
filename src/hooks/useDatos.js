@@ -25,7 +25,7 @@ export const useDatos = ({ url, metodo, formulario = null }) => {
 
         let nuevoForm;
 
-        if (metodo === "GET") {
+        if (formulario === null) {
             nuevoForm = new FormData();
         } else {
             nuevoForm = formulario;

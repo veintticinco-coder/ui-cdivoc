@@ -17,8 +17,8 @@ export function App() {
       {pathname !== "/Sesion" &&
         <Menu menu={menu} VerMenu={VerMenu} />
       }
-      <div className={`contenido-encabezado ${pathname === "/Sesion" ? "sesion" : ""}`}></div>
-      <main className={pathname === "/Sesion" ? "sesion" : ""}>
+      <div className={`contenido-encabezado ${pathname === "/" ? "inicio" : ""} ${pathname === "/Sesion" ? "sesion" : ""}`}></div>
+      <main className={pathname === "/Sesion" ? "sesion" : "contenido-principal"}>
         <Routes>
           {sesion && sesion.role === "ADMINISTRADOR" ? <>
             <Route exact path="/" element={<Inicio />} />
@@ -54,7 +54,6 @@ export function App() {
                 </li>
               </>}
             </nav>
-
             <p>Todos los derechos reservados &copy;</p>
           </div>
         </footer>
