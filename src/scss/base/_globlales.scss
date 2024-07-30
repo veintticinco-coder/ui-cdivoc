@@ -6,6 +6,8 @@ html {
 
 body {
   background-color: $negro;
+  min-height: 100vh;
+  position: relative;
 }
 
 *,
@@ -39,7 +41,6 @@ h3 {
 }
 
 .contenido-principal {
-  min-height: 500px;
   margin-top: 50px;
   margin-bottom: 50px;
 }

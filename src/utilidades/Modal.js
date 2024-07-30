@@ -4,6 +4,7 @@ import { Formulario } from "./Formulario";
 
 export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar }) => {
     const formulario = useRef();
+    const [mensaje, setMensaje] = useState();
 
     const [informacion, setInformacion] = useState({
         url: url,
@@ -24,6 +25,11 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
 
     useEffect(() => {
         if (!respuesta.respuesta && !respuesta.completado) return;
+
+        if (respuesta.respuesta && respuesta.respuesta.Error > 0) {
+            setMensaje(respuesta.respuesta.Mensaje);
+            return;
+        }
 
         modal(false);
         buscar();
@@ -59,6 +65,7 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
                     </div>
                     <div className="modal-pie">
                         <div className="alinear-derecha contenedor-boton">
+                            {mensaje && <span className="error">{mensaje}</span>}
                             <button type="button"
                                 className="boton-gris contorno"
                                 onClick={() => modal(false)}>Cancelar
