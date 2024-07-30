@@ -3,7 +3,7 @@
     top: -100vh;
   }
   to {
-    top: 15%;
+    top: 5%;
   }
 }
 
@@ -15,6 +15,7 @@
   left: 0;
   animation: mover 0.8s;
   animation-fill-mode: forwards;
+  z-index: 1;
 }
 
 .modal {
@@ -79,6 +80,8 @@
 
 .modal-contenido {
   padding: 15px;
+  max-height: 500px;
+  overflow: scroll;
 }
 
 .modal-pie {
