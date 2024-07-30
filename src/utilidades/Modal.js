@@ -64,8 +64,8 @@ export const Modal = ({ titulo, url, metodo, campos, valores = [], modal, buscar
                         </div>
                     </div>
                     <div className="modal-pie">
+                        {mensaje && <span className="error">{mensaje}</span>}
                         <div className="alinear-derecha contenedor-boton">
-                            {mensaje && <span className="error">{mensaje}</span>}
                             <button type="button"
                                 className="boton-gris contorno"
                                 onClick={() => modal(false)}>Cancelar

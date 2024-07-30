@@ -528,10 +528,12 @@ span.cancelado {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #f34141;
+  background-color: #f9a1a1;
   color: #fff;
   padding: 0 15px;
   border-radius: 5px;
+  border-left: 7px solid #d90e0e;
+  margin-bottom: 5px;
 }
 
 span.correcto,
@@ -539,30 +541,36 @@ span.terminado {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #12c712;
+  background-color: #f9a1a1;
   color: #fff;
   padding: 0 15px;
   border-radius: 5px;
+  border-left: 7px solid #d90e0e;
+  margin-bottom: 5px;
 }
 
 span.pendiente {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #e9d502;
+  background-color: #f9a1a1;
   color: #fff;
   padding: 0 15px;
   border-radius: 5px;
+  border-left: 7px solid #d90e0e;
+  margin-bottom: 5px;
 }
 
 span.encurso {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #067288;
+  background-color: #f9a1a1;
   color: #fff;
   padding: 0 15px;
   border-radius: 5px;
+  border-left: 7px solid #d90e0e;
+  margin-bottom: 5px;
 }
 
 .spinner {
@@ -638,6 +646,10 @@ a {
 .contenedor-datos {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+.contenedor-datos .negrita {
+  margin-top: 10px;
 }
 
 .formulario {
@@ -667,6 +679,9 @@ label {
 .textos:focus {
   border-color: #4c4e4f;
 }
+.textos:disabled {
+  color: #cccdce;
+}
 
 .etiqueta {
   display: flex;
@@ -676,7 +691,7 @@ label {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.etiqueta span:first-child {
+.etiqueta > span:first-child {
   min-width: 40px;
   display: flex;
   justify-content: center;
@@ -815,6 +830,19 @@ select {
 .tabla td {
   text-align: center;
   padding: 5px;
+}
+
+.informacion {
+  display: flex;
+  gap: 5px;
+  color: #fff;
+  font-size: 20px;
+}
+.informacion a {
+  color: #fff;
+}
+.informacion a:hover {
+  text-decoration: underline;
 }
 
 .contenedor-acciones {

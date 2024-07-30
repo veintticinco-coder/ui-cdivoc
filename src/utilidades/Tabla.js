@@ -39,7 +39,7 @@ export const Tabla = ({ url, campos }) => {
                         type="button"
                         key={`Borrar${valores.id}`}
                         className="boton-borrar"
-                        title="Borrar"
+                        title="Eliminar"
                         onClick={() => Borrar(valores)}>
                         <i className="fa-solid fa-trash"></i>
                     </span>
@@ -107,6 +107,11 @@ export const Tabla = ({ url, campos }) => {
 
     return (
         <>
+            <div className="informacion">
+                <a href="/">Inicio</a>
+                <i className="fa-solid fa-angle-right"></i>
+                {url}
+            </div>
             <div className="tabla-opciones">
                 <div className="contenedor-boton alinear-izquierda">
                     <input type="text" className="textos" />

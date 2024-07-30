@@ -255,4 +255,9 @@ a {
 .contenedor-datos {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+
+  .negrita {
+    margin-top: 10px;
+  }
 }

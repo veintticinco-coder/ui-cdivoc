@@ -31,9 +31,9 @@ export const Sesion = () => {
     useEffect(() => {
         if (!respuesta || !respuesta.respuesta) return;
 
-        const datosResp = respuesta.respuesta.Datos;
+        const datosResp = respuesta.respuesta;
 
-        if (!datosResp || datosResp.length <= 0) {
+        if (!datosResp || datosResp.length <= 0 || datosResp.Error > 0) {
             setError("Usuario o contraseña incorrecta");
 
             setTimeout(() => {
@@ -43,7 +43,7 @@ export const Sesion = () => {
             return;
         }
 
-        setSesion({ ...datosResp });
+        setSesion({ ...datosResp.Datos });
     }, [respuesta]);
 
     return (

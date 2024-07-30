@@ -7,6 +7,13 @@ export const FormularioClientes = [
     },
     {
         type: "text",
+        label: "# Cliente",
+        name: "numero_cliente",
+        max: 10,
+        etiqueta: "fa-solid fa-gear"
+    },
+    {
+        type: "text",
         label: "Nombre",
         name: "nombre",
         max: 50,
@@ -50,7 +57,6 @@ export const FormularioClientes = [
         label: "Empresa",
         name: "empresa",
         max: 50,
-        required: true,
         etiqueta: "fa-solid fa-user-tie"
     },
     {
@@ -58,8 +64,6 @@ export const FormularioClientes = [
         label: "RFC",
         name: "rfc",
         max: 18,
-        required: true,
-        className: "mayuscula",
         etiqueta: "fa-solid fa-file"
     },
     {

@@ -58,10 +58,12 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: $color;
+  background-color: lighten($rojo, 35);
   color: $blanco;
   padding: 0 15px;
   border-radius: 5px;
+  border-left: 7px solid $rojo;
+  margin-bottom: 5px;
 }
 
 @mixin flecha($posicion) {
