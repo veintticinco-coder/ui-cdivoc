@@ -78,10 +78,3 @@ export const FormularioClientes = [
         label: "Acciones",
         options: ["Editar", "Borrar"]
     }];
-
-
-// {
-//     type: "options",
-//     label: "Usuario",
-//     name: "usuario"
-// }
