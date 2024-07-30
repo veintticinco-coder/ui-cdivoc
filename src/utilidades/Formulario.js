@@ -1,4 +1,4 @@
-export const Formulario = ({ type, label, name, required, className = null, options = [], value, etiqueta = null }) => {
+export const Formulario = ({ type, label, name, required, className = null, options = [], value, etiqueta = null, max = null }) => {
 
     const Normal = () => (
         <div className="campos">
@@ -29,6 +29,7 @@ export const Formulario = ({ type, label, name, required, className = null, opti
             {(type !== "select" && type !== "textarea" && type !== "options" && type !== "hidden") &&
                 <input type={type} name={name} required={required ? true : false}
                     className={`textos ${className ? className : ""}`}
+                    maxLength={max ? max : -1}
                     defaultValue={value !== undefined ? value : ""} />}
             {(type === "select") &&
                 <select

@@ -9,6 +9,7 @@ export const FormularioClientes = [
         type: "text",
         label: "Nombre",
         name: "nombre",
+        max: 50,
         required: true,
         etiqueta: "fa-regular fa-user"
     },
@@ -16,6 +17,7 @@ export const FormularioClientes = [
         type: "text",
         label: "Paterno",
         name: "paterno",
+        max: 50,
         required: true,
         etiqueta: "fa-regular fa-user"
     },
@@ -23,6 +25,7 @@ export const FormularioClientes = [
         type: "text",
         label: "Materno",
         name: "materno",
+        max: 50,
         required: false,
         etiqueta: "fa-regular fa-user"
     },
@@ -30,6 +33,7 @@ export const FormularioClientes = [
         type: "email",
         label: "Correo",
         name: "correo",
+        max: 50,
         required: true,
         etiqueta: "fa-solid fa-at"
     },
@@ -37,6 +41,7 @@ export const FormularioClientes = [
         type: "text",
         label: "Teléfono",
         name: "telefono",
+        max: 15,
         required: true,
         etiqueta: "fa-solid fa-phone"
     },
@@ -44,6 +49,7 @@ export const FormularioClientes = [
         type: "text",
         label: "Empresa",
         name: "empresa",
+        max: 50,
         required: true,
         etiqueta: "fa-solid fa-user-tie"
     },
@@ -51,6 +57,7 @@ export const FormularioClientes = [
         type: "text",
         label: "RFC",
         name: "rfc",
+        max: 18,
         required: true,
         className: "mayuscula",
         etiqueta: "fa-solid fa-file"
