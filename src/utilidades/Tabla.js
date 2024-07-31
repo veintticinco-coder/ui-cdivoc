@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDatos } from "../hooks";
 import { Modal } from "./Modal";
 import { Spinner } from "./Spinner";
@@ -10,15 +10,21 @@ export const Tabla = ({ url, campos }) => {
     const [modal, setModal] = useState(false);
     const [buscando, setBuscando] = useState(false);
     const [opciones, setOpciones] = useState({});
+    const [formulario, setFormulario] = useState();
+    const buscarRef = useRef();
 
-    const { respuesta: registros, Enviar } = useDatos({ url: url, metodo: "GET" });
+    const { respuesta: registros, Enviar } = useDatos({ url: url, metodo: "GET", formulario: formulario });
 
     const Buscar = () => {
+        const buscar = new FormData();
+
         setBuscando(true);
         setTimeout(() => {
             setModal(false);
             setBuscando(false);
-            Enviar();
+            buscar.append("buscar", buscarRef.current.value);
+            setFormulario(buscar);
+            //Enviar();
         }, 500)
     }
 
@@ -114,7 +120,7 @@ export const Tabla = ({ url, campos }) => {
             </div>
             <div className="tabla-opciones">
                 <div className="contenedor-boton alinear-izquierda">
-                    <input type="text" className="textos" />
+                    <input type="text" className="textos" ref={buscarRef} />
                     <button type="button" className="boton-gris" onClick={Buscar}>
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </button>

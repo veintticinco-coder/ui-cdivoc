@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import { useDatos } from "../hooks"
 
 export const FormularioUnidades = () => {
@@ -45,6 +46,13 @@ export const FormularioUnidades = () => {
         name: "pasajeros",
         required: true,
         etiqueta: "fa-solid fa-hashtag"
+    },
+    {
+        type: "checkbox",
+        label: "Es de Lujo",
+        name: "delujo",
+        require: true,
+        etiqueta: ["fa-solid fa-toggle-off", "fa-solid fa-toggle-on"]
     },
     {
         type: "options",
