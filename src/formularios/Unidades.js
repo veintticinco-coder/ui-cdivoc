@@ -15,30 +15,36 @@ export const FormularioUnidades = () => {
         name: "marca",
         value: "id_marca",
         options: Marcas?.Datos,
-        required: true
+        required: true,
+        etiqueta: "fa-solid fa-car"
     },
     {
         type: "text",
         label: "Modelo",
         name: "modelo",
-        required: true
+        required: true,
+        etiqueta: "fa-regular fa-calendar"
     },
     {
         type: "text",
         label: "Placa",
         name: "placa",
-        required: true
+        required: true,
+        etiqueta: "fa-regular fa-id-card"
     },
     {
         type: "text",
         label: "Color",
         name: "color",
-        required: true
-    }, {
+        required: true,
+        etiqueta: "fa-solid fa-palette"
+    },
+    {
         type: "number",
         label: "# Pasajeros",
         name: "pasajeros",
-        required: true
+        required: true,
+        etiqueta: "fa-solid fa-hashtag"
     },
     {
         type: "options",

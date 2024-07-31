@@ -37,7 +37,7 @@ export const Formulario = ({ type, label, name, required, className = null, opti
                     className={`textos ${className ? className : ""}`}
                     required={required ? true : false}
                     defaultValue={value}
-                    disabled={!value ? true : false}>
+                    disabled={name === "estatus" && !value ? true : false}>
                     {required ?
                         <option value="-1" disabled>:: SELECCIONAR ::</option> :
                         <option value={0}>:: NINGUNO(A) ::</option>}
